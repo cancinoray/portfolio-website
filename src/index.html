@@ -45,9 +45,12 @@
         <h1 class="hero-title load-hidden">
           Hi, my name is <span class="text-color-main">Ray!</span>
           <br />
-          I'm an <span class="text-color-main">Engineer</span> | <span class="text-color-main">Educator</span> |
           <br />
-          <span class="text-color-main">Designer</span> | <span class="text-color-main">Developer</span>.
+          I'm a <span class="text-color-main">Mechanical Engineer</span> |
+          <br />
+          <span class="text-color-main">Web Developer</span> |  <span class="text-color-main">Educator</span> |
+          <br />
+          <span class="text-color-main">Data Enthusiast</span>.
         </h1>
         <p class="hero-cta load-hidden">
           <a rel="noreferrer" class="cta-btn cta-btn--hero" href="#about"
@@ -78,12 +81,21 @@
           <div class="col-md-6 col-sm-12">
             <div class="about-wrapper__info load-hidden">
               <p class="about-wrapper__info-text">
-                From mechanical engineering graduate to web developer! Currently learning Vue, React and NextJS as a framework.
-                Fascinated in cybersecurity, artificial intelligence, machine learning and data science.
+                Mechanical Engineer | Web Developer | Data Enthusiast
               </p>
               <p class="about-wrapper__info-text">
-                When I'm not working, I read a lot of light novels and manga/manwha.
-                Sometimes, I'll go to a coffee shop with my laptop to explore new technogies.
+                Hi there! I'm a mechanical engineering graduate who ventured into web development and discovered a passion for data science along the way.
+                For nearly two years, I've been building websites and applications using frameworks like Vue, React, and Next.js, making projects smoother and more efficient.
+              </p>
+              <p class="about-wrapper__info-text">
+                These days, I'm diving deeper into data science, machine learning fundamentals and data engineering—learning how to create and maintain data pipeline, build, evaluate, and deploy models, as well as discovering new ways to bring data insights into development.
+                I love how data combines engineering and analytics to solve real-world problems, and I'm excited about how these skills can enhance my work even more.
+              </p>
+              <p class="about-wrapper__info-text">
+                Outside of coding, you'll usually find me with a light novel, manga, or manhwa, or enjoying coffee shop vibes while exploring the latest in tech.
+              </p>
+              <p class="about-wrapper__info-text">
+                Let’s connect if you're into data, development, or just want to chat about new tech trends!
               </p>
               <span class="d-flex mt-3">
                 <a
@@ -106,10 +118,10 @@
     <section id="projects">
       <div class="container">
         <div class="project-wrapper">
-          <h2 class="section-title dark-blue-text">Projects</h2>
+          <h2 class="section-title dark-blue-text">Data Engineering and Data Science/Machine Learning Projects</h2>
 
           <!-- Notice: each .row is a project -->
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-lg-4 col-sm-12">
               <div class="project-wrapper__text load-hidden">
                 <h3 class="project-wrapper__text-title">Face Recognition App</h3>
@@ -155,34 +167,32 @@
                 </a>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- /END Project -->
 
           <!-- Notice: each .row is a project -->
           <div class="row">
             <div class="col-lg-4 col-sm-12">
               <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Monster Rolodex</h3>
+                <h3 class="project-wrapper__text-title">Amazon Sales Data Analysis</h3>
                 <div>
                   <p class="mb-4">
-                    This project is made up of HTML/CSS, TypeScript and React as a framework.
-                    I also use an API -  Robohash API for generating a random icon in the card component.
-                    It also have a search function to locate a name in the card component.
+                    This project processes and analyzes Amazon sales data to generate insightful metrics and visualizations, including sales performance, return rates, profit margins, and fee analysis.
                   </p>
+                  <div class="mb-4">
+                    <p class="mb-2 font-semibold">Features:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                      <p>✅ <strong>Data Processing:</strong> Extracts detailed fee information from raw Amazon sales data.</p>
+                      <p>✅ <strong>Sales Metrics:</strong> Calculates total sales, net proceeds, return rates, and profit margins.</p>
+                      <p>✅ <strong>Visualizations:</strong> Generates bar charts for sales, return rates, profit margins, and fee analysis.</p>
+                    </ul>
+                  </div>
                 </div>
                 <a
                   rel="noreferrer"
                   target="_blank"
                   class="cta-btn cta-btn--hero"
-                  href="https://cancinoray.github.io/monster-rolodex/"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="https://github.com/cancinoray/monster-rolodex"
+                  href="https://github.com/cancinoray/amazon-sales-data-analysis"
                 >
                   Source Code
                 </a>
@@ -201,7 +211,57 @@
                     <img
                       alt="Project Image"
                       class="img-fluid"
-                      src="assets/project-1.png"
+                      src="assets/project-3.png"
+                    />
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- /END Project -->
+
+          <!-- Notice: each .row is a project -->
+          <div class="row">
+            <div class="col-lg-4 col-sm-12">
+              <div class="project-wrapper__text load-hidden">
+                <h3 class="project-wrapper__text-title">Weather Data Pipeline</h3>
+                <div>
+                  <p class="mb-4">
+                    This project collects, processes, and analyzes weather data to enable insightful visualizations and trend analysis using modern data tools.
+                  </p>
+                  <div class="mb-4">
+                    <p class="mb-2 font-semibold">Features:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                      <p>✅ <strong>Data Collection:</strong> Fetches real-time and historical weather data from a public API.</p>
+                      <p>✅ <strong>Data Storage and Processing:</strong> Cleans and stores data in PostgreSQL using Python ETL scripts within Docker containers.</p>
+                      <p>✅ <strong>Visualizations:</strong> Uses Metabase to create dashboards showing temperature trends, humidity levels, and weather anomalies.</p>
+                    </ul>
+                  </div>
+                </div>
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="cta-btn cta-btn--hero"
+                  href="https://github.com/cancinoray/weather-api-pipeline-dashboard"
+                >
+                  Source Code
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-8 col-sm-12">
+              <div class="project-wrapper__image load-hidden">
+                <a rel="noreferrer" href="#!" target="_blank">
+                  <div
+                    data-tilt
+                    data-tilt-max="4"
+                    data-tilt-glare="true"
+                    data-tilt-max-glare="0.5"
+                    class="thumbnail rounded js-tilt"
+                  >
+                    <img
+                      alt="Project Image"
+                      class="img-fluid"
+                      src="assets/project-4.png"
                     />
                   </div>
                 </a>
@@ -214,29 +274,41 @@
           <div class="row">
             <div class="col-lg-4 col-sm-12">
               <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Quote Generator</h3>
+                <h3 class="project-wrapper__text-title">Machine Learning Zoomcamp Coursework</h3>
                 <div>
                   <p class="mb-4">
-                      This project is made up of HTML/CSS for the front-end design.
-                      JavaScript for getting the data from an API -  Foresmatic API for generating a random quotes and Tweet Web Intent for tweeting the generated quoted.
-                      Also , Deploy a proxy server in Render to avoid CORS error.
+                    This project is a collection of coursework from the Machine Learning Zoomcamp, covering various topics in machine learning and data science.
                   </p>
+                  <div class="mb-4">
+                    <p class="mb-2 font-semibold">Modules:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                      <p>✅ <strong>Module 1: Introduction to Machine Learning</strong></p>
+                      <p>✅ <strong>Module 2: Machine Learning for Regression</strong></p>
+                      <p>✅ <strong>Module 3: Machine Learning for Classification</strong></p>
+                      <p>✅ <strong>Module 4: Evaluation Metrics</strong></p>
+                      <p>✅ <strong>Module 5: Deploying ML Models</strong></p>
+                      <p>✅ <strong>Module 6: Decision Trees & Ensemble Learning</strong></p>
+                      <p>✅ <strong>Module 7: Neural Networks & Deep Learning</strong></p>
+                      <p>✅ <strong>Module 8: Serverless Deep Learning</strong></p>
+                      <p>✅ <strong>Module 9: Kubernetes & TensorFlow Serving</strong></p>
+                    </ul>
+                  </div>
                 </div>
                 <a
                   rel="noreferrer"
                   target="_blank"
                   class="cta-btn cta-btn--hero"
-                  href="https://cancinoray.github.io/quote-generator/index.html"
+                  href="https://github.com/cancinoray/ml-zoomcamp-2024"
                 >
-                  See Live
+                  Coursework
                 </a>
                 <a
                   rel="noreferrer"
                   target="_blank"
                   class="cta-btn text-color-main"
-                  href="https://github.com/cancinoray/quote-generator"
+                  href="https://github.com/DataTalksClub/machine-learning-zoomcamp"
                 >
-                  Source Code
+                  Course
                 </a>
               </div>
             </div>
@@ -253,7 +325,7 @@
                     <img
                       alt="Project Image"
                       class="img-fluid"
-                      src="assets/project-0.png"
+                      src="assets/project-5.png"
                     />
                   </div>
                 </a>
@@ -263,7 +335,7 @@
           <!-- /END Project -->
 
           <!-- Notice: each .row is a project -->
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-lg-4 col-sm-12">
               <div class="project-wrapper__text load-hidden">
                 <h3 class="project-wrapper__text-title">Background Generator</h3>
@@ -311,7 +383,7 @@
                 </a>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- /END Project -->
 
           <!-- Notice: each .row is a project -->
