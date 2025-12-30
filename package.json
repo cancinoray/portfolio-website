@@ -1,34 +1,40 @@
 {
-  "name": "simplefolio",
-  "version": "1.0.1",
-  "private": "true",
-  "description": "A clean, beautiful and responsive portfolio template for Developers!",
-  "source": "src/index.html",
+  "name": "portfolio-website",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Modern portfolio website built with Next.js, TypeScript, and Tailwind CSS",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cobidev/simplefolio"
-  },
-  "keywords": [],
-  "author": "Jacobo Martinez",
+  "keywords": [
+    "portfolio",
+    "nextjs",
+    "typescript",
+    "tailwindcss"
+  ],
+  "author": "Raymond Cancino",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cobidev/simplefolio/issues"
-  },
-  "homepage": "https://github.com/cobidev/simplefolio#readme",
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.14.4",
-    "prettier": "^2.4.1"
-  },
   "dependencies": {
-    "@popperjs/core": "^2.10.2",
-    "bootstrap": "^5.1.3",
-    "jquery": "^3.6.0",
-    "parcel": "^2.9.1",
-    "popper.js": "^1.16.1",
-    "vanilla-tilt": "^1.7.2"
+    "@types/node": "^25.0.3",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.23",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.1.1",
+    "framer-motion": "^12.23.26",
+    "lucide-react": "^0.562.0",
+    "next": "^16.1.1",
+    "next-themes": "^0.4.6",
+    "postcss": "^8.5.6",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8"
   }
 }
