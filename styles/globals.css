@@ -14,7 +14,7 @@
 
 @layer components {
   .gradient-primary {
-    @apply bg-gradient-to-br from-primary to-primary-light;
+    background: linear-gradient(135deg, #000428 0%, #004e92 100%);
   }
 
   .text-gradient {

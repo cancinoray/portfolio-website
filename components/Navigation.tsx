@@ -34,15 +34,13 @@ export default function Navigation() {
     }
   };
 
-  if (!mounted) return null;
-
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md"
+          ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-md"
           : "bg-transparent"
       }`}
     >
@@ -54,7 +52,11 @@ export default function Navigation() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="text-xl font-bold text-gradient"
+            className={`text-xl font-bold transition-colors ${
+              isScrolled
+                ? "text-gradient"
+                : "text-white"
+            }`}
           >
             Kuya Ray
           </a>
@@ -69,17 +71,25 @@ export default function Navigation() {
                   e.preventDefault();
                   handleNavClick(item.href);
                 }}
-                className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-colors"
+                className={`transition-colors ${
+                  isScrolled
+                    ? "text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
+                    : "text-white hover:text-yellow-300"
+                }`}
               >
                 {item.name}
               </a>
             ))}
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className={`p-2 rounded-lg transition-colors ${
+                isScrolled
+                  ? "hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
+                  : "hover:bg-white/20 text-white"
+              }`}
               aria-label="Toggle theme"
             >
-              {theme === "dark" ? (
+              {mounted && theme === "dark" ? (
                 <Sun className="w-5 h-5" />
               ) : (
                 <Moon className="w-5 h-5" />
@@ -91,10 +101,14 @@ export default function Navigation() {
           <div className="md:hidden flex items-center gap-2">
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className={`p-2 rounded-lg transition-colors ${
+                isScrolled
+                  ? "hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
+                  : "hover:bg-white/20 text-white"
+              }`}
               aria-label="Toggle theme"
             >
-              {theme === "dark" ? (
+              {mounted && theme === "dark" ? (
                 <Sun className="w-5 h-5" />
               ) : (
                 <Moon className="w-5 h-5" />
@@ -102,7 +116,11 @@ export default function Navigation() {
             </button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className={`p-2 rounded-lg transition-colors ${
+                isScrolled
+                  ? "hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
+                  : "hover:bg-white/20 text-white"
+              }`}
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
@@ -120,7 +138,9 @@ export default function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden mt-4 pb-4"
+            className={`md:hidden mt-4 pb-4 ${
+              isScrolled ? "bg-white/90 dark:bg-gray-900/90" : "bg-transparent"
+            }`}
           >
             {navItems.map((item) => (
               <a
@@ -130,7 +150,11 @@ export default function Navigation() {
                   e.preventDefault();
                   handleNavClick(item.href);
                 }}
-                className="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-colors"
+                className={`block py-2 transition-colors ${
+                  isScrolled
+                    ? "text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
+                    : "text-white hover:text-yellow-300"
+                }`}
               >
                 {item.name}
               </a>
