@@ -17,6 +17,10 @@
   ],
   "author": "Raymond Cancino",
   "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
   "dependencies": {
     "@types/node": "^25.0.3",
     "@types/react": "^19.2.7",
