@@ -43,32 +43,20 @@ export default function About() {
             variants={fadeInLeft}
             className="space-y-4"
           >
-            <p className="text-lg font-semibold text-primary dark:text-primary-light">
-              Mechanical Engineer | Web Developer | Data Enthusiast
+            <h1 className="text-2xl md:text-3xl font-bold mb-4 text-dark dark:text-white">
+              Hello, I&apos;m Ray!
+            </h1>
+            <p className="text-lg font-semibold text-primary dark:text-primary-light mb-6">
+              Data Engineer | Machine Learning Enthusiast | Remote-Ready | Skilled in Python, Airflow, dbt, SQL, & Cloud | Bridging Engineering & Data to Deliver Scalable Solutions
             </p>
             <p className="text-gray-700 dark:text-gray-300">
-              Hi there! I&apos;m a mechanical engineering graduate who ventured into
-              web development and discovered a passion for data science along the way.
-              For nearly two years, I&apos;ve been building websites and applications
-              using frameworks like Vue, React, and Next.js, making projects smoother
-              and more efficient.
+              I&apos;m a Data Engineer with a strong foundation in engineering and applied mathematics, now focused on building scalable data pipelines, analytics workflows, and AI/ML applications. With experience across remote teams and global startups, I bring both technical expertise and adaptability to fast-paced environments.
             </p>
             <p className="text-gray-700 dark:text-gray-300">
-              These days, I&apos;m diving deeper into data science, machine learning
-              fundamentals and data engineering—learning how to create and maintain
-              data pipeline, build, evaluate, and deploy models, as well as discovering
-              new ways to bring data insights into development. I love how data combines
-              engineering and analytics to solve real-world problems, and I&apos;m
-              excited about how these skills can enhance my work even more.
+              I specialize in Python, SQL, dbt, Airflow, and cloud platforms (GCP, AWS, Snowflake, BigQuery), leveraging these tools to design pipelines, automate workflows, and drive data-informed decision-making. My background as a Mechanical Engineering graduate and former university instructor adds a structured, problem-solving mindset to my tech career.
             </p>
             <p className="text-gray-700 dark:text-gray-300">
-              Outside of coding, you&apos;ll usually find me with a light novel, manga,
-              or manhwa, or enjoying coffee shop vibes while exploring the latest in
-              tech.
-            </p>
-            <p className="text-gray-700 dark:text-gray-300">
-              Let&apos;s connect if you&apos;re into data, development, or just want to
-              chat about new tech trends!
+              Currently, I&apos;m passionate about transforming raw data into actionable insights and exploring how machine learning can enhance business workflows. My career goal is to grow into leading data teams and mentoring future consultants—while contributing to startups and organizations that value innovation, efficiency, and collaboration.
             </p>
             <div className="mt-6">
               <a
