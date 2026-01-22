@@ -12,7 +12,7 @@ export const certificates: Certificate[] = [
     title: "Complete A.I. & Machine Learning, Data Science Bootcamp",
     issuer: "Udemy",
     date: "2024",
-    credentialUrl: "https://www.udemy.com/certificate/UC-a441674f-00a1-484a-a0a6-907c36c71c0e/",
+    credentialUrl: "https://www.udemy.com/certificate/UC-79dc5513-9f21-4fb0-b6c9-4301c0e9122b/",
     image: "/assets/certificates/2.png"
   },
 ];
