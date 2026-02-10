@@ -15,5 +15,12 @@ export const certificates: Certificate[] = [
     credentialUrl: "https://www.udemy.com/certificate/UC-79dc5513-9f21-4fb0-b6c9-4301c0e9122b/",
     image: "/assets/certificates/2.png"
   },
+  {
+    title: "Complete Web Developer",
+    issuer: "Udemy",
+    date: "2024",
+    credentialUrl: "https://www.udemy.com/certificate/UC-4b1f40a1-7c4c-4ea7-89bc-c942c4878340/",
+    image: "/assets/certificates/3.png"
+  },
 ];
 
