@@ -4,12 +4,20 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 
-const navItems = [
-  { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
-  { name: "Certificates", href: "#certificates" },
-  { name: "Contact", href: "#contact" },
+type NavItem = {
+  name: string;
+  href: string;
+  type: "section" | "page";
+};
+
+const navItems: NavItem[] = [
+  { name: "About", href: "#about", type: "section" },
+  { name: "Projects", href: "#projects", type: "section" },
+  { name: "Certificates", href: "#certificates", type: "section" },
+  { name: "Contact", href: "#contact", type: "section" },
+  { name: "Blog", href: "/blog", type: "page" },
 ];
 
 export default function Navigation() {
@@ -27,7 +35,7 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
+  const handleSectionNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
     const element = document.querySelector(href);
     if (element) {
@@ -65,21 +73,36 @@ export default function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(item.href);
-                }}
-                className={`transition-colors ${
-                  isScrolled
-                    ? "text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
-                    : "text-white hover:text-yellow-300"
-                }`}
-              >
-                {item.name}
-              </a>
+              item.type === "section" ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleSectionNavClick(item.href);
+                  }}
+                  className={`transition-colors ${
+                    isScrolled
+                      ? "text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
+                      : "text-white hover:text-yellow-300"
+                  }`}
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`transition-colors ${
+                    isScrolled
+                      ? "text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
+                      : "text-white hover:text-yellow-300"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -144,21 +167,36 @@ export default function Navigation() {
             }`}
           >
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(item.href);
-                }}
-                className={`block py-2 transition-colors ${
-                  isScrolled
-                    ? "text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
-                    : "text-white hover:text-yellow-300"
-                }`}
-              >
-                {item.name}
-              </a>
+              item.type === "section" ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleSectionNavClick(item.href);
+                  }}
+                  className={`block py-2 transition-colors ${
+                    isScrolled
+                      ? "text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
+                      : "text-white hover:text-yellow-300"
+                  }`}
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block py-2 transition-colors ${
+                    isScrolled
+                      ? "text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
+                      : "text-white hover:text-yellow-300"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </motion.div>
         )}

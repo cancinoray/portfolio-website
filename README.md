@@ -26,18 +26,16 @@ A modern, responsive portfolio website showcasing my projects and professional e
 ```
 portfolio-website/
 ├── app/                 # Next.js App Router
+│   ├── blog/            # Blog list and post pages
 │   ├── layout.tsx       # Root layout with metadata
 │   └── page.tsx         # Home page
 ├── components/          # React components
 │   ├── About.tsx        # About section
-│   ├── Contact.tsx     # Contact section
-│   ├── Footer.tsx      # Footer with social links
-│   ├── Hero.tsx         # Hero section
-│   ├── Navigation.tsx  # Navigation bar
-│   ├── ProjectCard.tsx  # Project card component
-│   └── Projects.tsx     # Projects container
+│   ├── LatestBlog.tsx   # Latest posts on home
+│   ├── ...              # (Contact, Footer, Hero, Navigation, etc.)
 ├── data/               # Data files
-│   └── projects.ts     # Projects data
+│   ├── blogPosts.ts     # Blog posts and helpers
+│   └── projects.ts      # Projects data
 ├── lib/                # Utilities
 │   └── animations.ts    # Framer Motion configurations
 ├── public/             # Static assets
@@ -101,6 +99,20 @@ The project includes a `netlify.toml` configuration file. Simply connect your re
 The production build generates static files in the `out/` directory, which can be served by any static hosting service.
 
 ## 🎨 Customization
+
+### Adding blog posts
+
+Blog posts are **Markdown files** in `content/blog/`. To add a new post:
+
+1. **Create a new file** `content/blog/your-post-slug.md`. The filename (without `.md`) is the URL slug (e.g. `/blog/your-post-slug`).
+
+2. **Add frontmatter** at the top between `---` lines: `title`, `summary`, `publishedAt` (YYYY-MM-DD), `readingTime`, `tags`. Optional: `coverImage: "/assets/blog/cover.jpg"`.
+
+3. **Write the body in Markdown** below the frontmatter: paragraphs, **bold**, lists, [links](url), headings with `##`, images with `![alt](/assets/blog/photo.jpg)`.
+
+4. **Images** – put files in `public/assets/blog/` and reference as `/assets/blog/your-image.jpg`.
+
+The **home page** shows the 3 most recent posts in the “Latest from the Blog” section. New posts appear there automatically by date.
 
 ### Adding Projects
 
