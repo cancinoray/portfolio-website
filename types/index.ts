@@ -23,13 +23,4 @@ export interface SocialLink {
   icon: string;
 }
 
-export interface BlogPost {
-  slug: string;
-  title: string;
-  summary: string;
-  publishedAt: string;
-  readingTime: string;
-  tags: string[];
-  content: string[];
-}
-
+// Blog types live in lib/blog.ts (BlogPostMeta, BlogPost) for Markdown-based posts.

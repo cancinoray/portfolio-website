@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { getSortedBlogPosts } from "@/data/blogPosts";
+import { getSortedBlogPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
   title: "Blog | Kuya Ray",
@@ -41,8 +42,20 @@ export default function BlogPage() {
           {posts.map((post) => (
             <article
               key={post.slug}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-100 dark:border-gray-700"
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700"
             >
+              {post.coverImage && (
+                <Link href={`/blog/${post.slug}`} className="block relative w-full aspect-video bg-gray-100 dark:bg-gray-700">
+                  <Image
+                    src={post.coverImage}
+                    alt=""
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 896px) 100vw, 896px"
+                  />
+                </Link>
+              )}
+              <div className="p-6">
               <div className="flex flex-wrap gap-2 mb-4">
                 {post.tags.map((tag) => (
                   <span
@@ -76,6 +89,7 @@ export default function BlogPage() {
               >
                 Read post →
               </Link>
+              </div>
             </article>
           ))}
         </div>

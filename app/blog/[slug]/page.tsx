@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { blogPosts, getBlogPostBySlug } from "@/data/blogPosts";
+import { getBlogPostBySlug, getBlogSlugs } from "@/lib/blog";
+import MarkdownContent from "@/components/MarkdownContent";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
@@ -17,9 +19,7 @@ function formatDate(dateString: string): string {
 }
 
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({
-    slug: post.slug,
-  }));
+  return getBlogSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
@@ -57,6 +57,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </Link>
 
         <header className="mb-10">
+          {post.coverImage && (
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-6 bg-gray-100 dark:bg-gray-800">
+              <Image
+                src={post.coverImage}
+                alt=""
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, 672px"
+              />
+            </div>
+          )}
           <div className="flex flex-wrap gap-2 mb-4">
             {post.tags.map((tag) => (
               <span
@@ -78,10 +90,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </header>
 
-        <div className="space-y-6 text-lg leading-8 text-gray-700 dark:text-gray-300">
-          {post.content.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
+        <div className="text-lg text-gray-700 dark:text-gray-300">
+          <MarkdownContent content={post.content} />
         </div>
       </article>
     </main>
