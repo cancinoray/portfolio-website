@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Syne, Martian_Mono, Lora } from "next/font/google";
+import { Space_Grotesk, Martian_Mono, Lora } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "../styles/globals.css";
 
-const syne = Syne({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "800"],
-  variable: "--font-syne",
+  weight: ["400", "500", "700"],
+  variable: "--font-space-grotesk",
 });
 
 const martianMono = Martian_Mono({
@@ -67,7 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${syne.variable} ${martianMono.variable} ${lora.variable} font-display antialiased bg-paper text-ink`}
+        className={`${spaceGrotesk.variable} ${martianMono.variable} ${lora.variable} font-display antialiased bg-paper text-ink`}
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}

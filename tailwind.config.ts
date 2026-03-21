@@ -37,7 +37,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["var(--font-syne)", "system-ui", "sans-serif"],
+        display: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],
         mono: ["var(--font-martian)", "ui-monospace", "monospace"],
         serif: ["var(--font-lora)", "Georgia", "serif"],
       },
