@@ -9,7 +9,7 @@ const RESUME_URL =
 const meta = [
   { label: "Location", value: "Philippines" },
   { label: "Role", value: "Data Engineer" },
-  { label: "Startup", value: "Carnot Coaching" },
+  { label: "Startup", value: "Carnot Coaching Center" },
   { label: "Status", value: "● Available", isMint: true },
 ];
 
