@@ -38,7 +38,7 @@ function ContactInner() {
   return (
     <div ref={ref} className="container mx-auto px-4 reveal">
       <p className="font-mono text-xs text-white/40 uppercase tracking-widest mb-2">
-        05 · Contact
+        06 · Contact
       </p>
 
       <div className="grid md:grid-cols-2 gap-12 mt-8">
