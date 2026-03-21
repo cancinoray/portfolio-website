@@ -13,6 +13,54 @@ type ExperienceItem = {
 
 const experiences: ExperienceItem[] = [
   {
+    period: "Apr 2025–Oct 2025",
+    company: "Mindwyre",
+    type: "Remote · Idaho, USA",
+    role: "Data Engineer",
+    description:
+      "Designed and implemented a data pipeline for AdTech data ingestion and transformation, enabling reliable reporting and analytics. Trained and deployed a classification model to automatically categorize project codes and labels. Utilized SQL, Tableau, and Power BI for advanced reporting, delivering actionable insights to stakeholders.",
+    tags: [
+      "SQL",
+      "Tableau",
+      "Power BI",
+      "Python",
+      "ML Classification",
+      "AdTech",
+    ],
+  },
+  {
+    period: "Jul 2022–Feb 2025",
+    company: "GrandShipper",
+    type: "Remote · New York, USA",
+    role: "Software Engineer",
+    description:
+      "Designed and maintained data pipelines integrating e-commerce platforms (Wix, TikTok Shop, Walmart, Shein). Built ETL workflows using Airflow and dbt, reducing manual data prep time by 25%. Developed internal dashboards for analytics and experimented with Vertex AI models for product recommendations.",
+    tags: ["Airflow", "dbt", "Vertex AI", "ETL", "E-Commerce", "Dashboards"],
+  },
+  {
+    period: "Aug 2021–Apr 2022",
+    company: "Sumi North Philippines",
+    type: "Wiring System · Pangasinan, PH",
+    role: "Production Division Staff",
+    description:
+      "Designed and implemented process improvements in production, contributing to increased team efficiency. Applied data analysis to identify bottlenecks and improved output efficiency by 15%. Led a small team of engineers and production workers.",
+    tags: ["Process Improvement", "Data Analysis", "Team Leadership"],
+  },
+  {
+    period: "Aug 2020–Dec 2024",
+    company: "Virgen Milagrosa University Foundation",
+    type: "Part-time · Pangasinan, PH",
+    role: "University Instructor",
+    description:
+      "Taught foundational engineering courses, including Algebra, Trigonometry, Calculus, and Thermodynamics. Supervised junior students in Mechanical Engineering, guiding them through academic and project-based work.",
+    tags: [
+      "Thermodynamics",
+      "Calculus",
+      "Applied Math",
+      "Curriculum Design",
+    ],
+  },
+  {
     period: "2024–Present",
     company: "Carnot Coaching Center",
     type: "EdTech · PH",
@@ -26,29 +74,6 @@ const experiences: ExperienceItem[] = [
       "Product Strategy",
       "Team Leadership",
     ],
-  },
-  {
-    period: "2023–Present",
-    company: "University of Pangasinan",
-    type: "PHINMA Education · PH",
-    role: "ME Faculty Member",
-    description:
-      "Teaching Mechanical Engineering subjects at the College of Engineering and Architecture. Developing curricula combining engineering principles with modern computational tools.",
-    tags: [
-      "Thermodynamics",
-      "Applied Math",
-      "Curriculum Design",
-      "PRC Board Prep",
-    ],
-  },
-  {
-    period: "2023–Present",
-    company: "AR-ES Gift Shop",
-    type: "Sole Proprietorship · PH",
-    role: "Founder & Operator",
-    description:
-      "Running an online crafting and gifting business. Managing e-commerce operations, BIR compliance, and digital marketing alongside technical work.",
-    tags: ["E-Commerce", "Operations", "BIR Compliance"],
   },
 ];
 

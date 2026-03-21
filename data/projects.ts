@@ -2,6 +2,21 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    title: "2025 COMELEC Election Data Analytics Platform",
+    description:
+      "A comprehensive data engineering platform for collecting, processing, and analyzing election data from the 2025 Philippines Commission on Elections (COMELEC) national and local elections.",
+    stack: [
+      "Python",
+      "GCP",
+      "BigQuery",
+      "Google Cloud Storage",
+      "Terraform",
+      "dbt",
+    ],
+    image: "/assets/project-6.png",
+    githubUrl: "https://github.com/cancinoray",
+  },
+  {
     title: "Stack Overflow End-to-End Data Pipeline",
     description:
       "This project analyzes 14 years of Stack Overflow Developer Survey data to uncover valuable insights into technology trends, developer experiences, and industry shifts. The analysis covers a wide range of topics, including programming languages, salary distribution, education demographics, job roles, and predictions for future tech trends.",

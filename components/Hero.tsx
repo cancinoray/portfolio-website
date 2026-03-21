@@ -12,10 +12,10 @@ const chips = [
 ];
 
 const metrics = [
-  { value: "4+", label: "Projects Shipped", accent: "bg-signal" },
-  { value: "3+", label: "Certifications", accent: "bg-mint" },
-  { value: "2+", label: "Startups Built", accent: "bg-amber" },
-  { value: "ME+", label: "Engineering Roots", accent: "bg-slate" },
+  { value: "5+", label: "Projects Shipped", accent: "bg-signal" },
+  { value: "3+", label: "Years in Data", accent: "bg-mint" },
+  { value: "4", label: "Companies", accent: "bg-amber" },
+  { value: "ME", label: "Engineering Roots", accent: "bg-slate" },
 ];
 
 export default function Hero() {
