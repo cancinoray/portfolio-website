@@ -61,7 +61,7 @@ const experiences: ExperienceItem[] = [
     ],
   },
   {
-    period: "2024–Present",
+    period: "Feb 2026–Present",
     company: "Carnot Coaching Center",
     type: "EdTech · PH",
     role: "Co-Founder & Tech Lead",
