@@ -3,22 +3,79 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --ink: #0E0F0C;
+    --paper: #F0EDE4;
+    --chalk: #F5F4EE;
+    --surface: #FFFFFF;
+    --muted: #8A8880;
+    --rule: #DEDAD2;
+    --slate: #1B2A3B;
+    --signal: #0062FF;
+    --amber: #E8871A;
+    --mint: #00C896;
+  }
+
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100;
+    @apply bg-paper text-ink;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: linear-gradient(
+        rgba(0, 98, 255, 0.04) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(0, 98, 255, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
 }
 
 @layer components {
   .gradient-primary {
-    background: linear-gradient(135deg, #000428 0%, #004e92 100%);
+    background: linear-gradient(135deg, #1B2A3B 0%, #0062FF 100%);
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-slate to-signal;
+  }
+
+  /* Reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Chip */
+  .chip {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-mono border;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-mono text-sm tracking-wide transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-signal text-white hover:bg-signal/90 shadow-sm;
+  }
+
+  .btn-ghost {
+    @apply btn border border-rule text-ink hover:border-signal hover:text-signal;
   }
 }
-

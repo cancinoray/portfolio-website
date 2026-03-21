@@ -18,7 +18,7 @@ export const certificates: Certificate[] = [
   {
     title: "Complete Web Developer",
     issuer: "Udemy",
-    date: "2024",
+    date: "2022",
     credentialUrl: "https://www.udemy.com/certificate/UC-4b1f40a1-7c4c-4ea7-89bc-c942c4878340/",
     image: "/assets/certificates/3.png"
   },

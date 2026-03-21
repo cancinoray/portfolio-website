@@ -1,27 +1,24 @@
-import Navigation from "@/components/Navigation";
+import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
-import Certificates from "@/components/Certificates";
-import LatestBlog from "@/components/LatestBlog";
+import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import { getLatestBlogPosts } from "@/lib/blog";
 
 export default function Home() {
-  const latestPosts = getLatestBlogPosts(3);
   return (
     <main className="relative">
       <div id="top" />
-      <Navigation />
+      <Navbar />
       <Hero />
       <About />
+      <Skills />
       <Projects />
-      <Certificates />
-      <LatestBlog posts={latestPosts} />
+      <Experience />
       <Contact />
       <Footer />
     </main>
   );
 }
-
