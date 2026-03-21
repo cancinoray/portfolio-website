@@ -8,10 +8,16 @@ const PRIMARY_STACK = [
   "Docker",
   "Apache Airflow",
   "dbt (Data Build Tool)",
+  "dbt",
   "Google BigQuery",
+  "BigQuery",
   "PostgreSQL",
   "PySpark",
   "Metabase",
+  "GCP",
+  "Terraform",
+  "scikit-learn",
+  "TensorFlow",
 ];
 
 export default function Projects() {

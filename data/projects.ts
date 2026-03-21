@@ -38,6 +38,7 @@ export const projects: Project[] = [
     title: "Amazon Sales Data Analysis",
     description:
       "This project processes and analyzes Amazon sales data to generate insightful metrics and visualizations, including sales performance, return rates, profit margins, and fee analysis.",
+    stack: ["Python", "Pandas", "Matplotlib", "Data Processing"],
     features: [
       "Data Processing: Extracts detailed fee information from raw Amazon sales data.",
       "Sales Metrics: Calculates total sales, net proceeds, return rates, and profit margins.",
@@ -50,6 +51,7 @@ export const projects: Project[] = [
     title: "Weather Data Pipeline",
     description:
       "This project collects, processes, and analyzes weather data to enable insightful visualizations and trend analysis using modern data tools.",
+    stack: ["Python", "PostgreSQL", "Docker", "Metabase", "ETL"],
     features: [
       "Data Collection: Fetches real-time and historical weather data from a public API.",
       "Data Storage and Processing: Cleans and stores data in PostgreSQL using Python ETL scripts within Docker containers.",
@@ -62,6 +64,14 @@ export const projects: Project[] = [
     title: "Machine Learning Zoomcamp Coursework",
     description:
       "This project is a collection of coursework from the Machine Learning Zoomcamp, covering various topics in machine learning and data science.",
+    stack: [
+      "Python",
+      "scikit-learn",
+      "TensorFlow",
+      "Docker",
+      "Kubernetes",
+      "Flask",
+    ],
     features: [
       "Module 1: Introduction to Machine Learning",
       "Module 2: Machine Learning for Regression",
