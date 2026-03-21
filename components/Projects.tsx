@@ -18,6 +18,8 @@ const PRIMARY_STACK = [
   "Terraform",
   "scikit-learn",
   "TensorFlow",
+  "Next.js",
+  "TypeScript",
 ];
 
 export default function Projects() {
