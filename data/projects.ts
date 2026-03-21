@@ -14,7 +14,7 @@ export const projects: Project[] = [
       "dbt",
     ],
     image: "/assets/project-6.png",
-    githubUrl: "https://github.com/cancinoray",
+    githubUrl: "https://github.com/cancinoray/2025-comelec-national-and-local-election",
   },
   {
     title: "Stack Overflow End-to-End Data Pipeline",
