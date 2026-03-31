@@ -2,6 +2,7 @@
 
 import { useReveal } from "@/lib/useReveal";
 import { projects } from "@/data/projects";
+import { ArrowUpRight } from "lucide-react";
 
 const PRIMARY_STACK = [
   "Python",
@@ -26,16 +27,15 @@ export default function Projects() {
   const ref = useReveal();
 
   return (
-    <section id="projects" className="py-20 bg-paper relative z-10">
-      <div ref={ref} className="container mx-auto px-4 reveal">
-        <p className="font-mono text-xs text-muted uppercase tracking-widest mb-2">
-          03 · Projects
-        </p>
-        <h2 className="text-3xl md:text-4xl font-display font-extrabold text-ink tracking-tight mb-10">
+    <section id="projects" className="pt-0 pb-24 relative z-10 border-t border-ash/30">
+
+      <div ref={ref} className="max-w-6xl mx-auto px-6 reveal">
+        <p className="section-num mb-3">03 — Projects</p>
+        <h2 className="text-3xl md:text-5xl font-display font-extrabold text-snow tracking-tighter mb-12">
           Selected Work
         </h2>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {projects.map((project, index) => {
             const link =
               project.githubUrl || project.liveUrl || project.courseUrl;
@@ -47,30 +47,30 @@ export default function Projects() {
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block bg-surface border border-rule rounded-lg hover:border-signal transition-all duration-200 hover:translate-x-1"
+                className="group block card-dark rounded-xl hover:border-neon/30 overflow-hidden"
               >
-                <div className="grid grid-cols-[52px_1fr_auto] items-center gap-4 p-5">
+                <div className="grid grid-cols-[48px_1fr_auto] items-center gap-4 p-5 md:p-6">
                   {/* Index */}
-                  <span className="font-mono text-sm text-muted">
+                  <span className="font-mono text-sm text-fog/40 group-hover:text-neon/60 transition-colors duration-300">
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
                   {/* Content */}
                   <div className="min-w-0">
-                    <h3 className="font-display font-extrabold text-ink text-base md:text-lg group-hover:text-signal transition-colors">
+                    <h3 className="font-display font-bold text-snow text-base md:text-lg group-hover:text-neon transition-colors duration-300">
                       {project.title}
                     </h3>
-                    <p className="text-[13px] text-muted line-clamp-2 mt-1">
+                    <p className="font-serif text-[13px] text-fog line-clamp-2 mt-1">
                       {project.description}
                     </p>
-                    <div className="flex flex-wrap gap-1.5 mt-2">
+                    <div className="flex flex-wrap gap-1.5 mt-3">
                       {tags.map((tag) => (
                         <span
                           key={tag}
                           className={`text-[10px] font-mono px-2 py-0.5 rounded-full border ${
                             PRIMARY_STACK.includes(tag)
-                              ? "bg-signal/[0.07] text-signal border-signal/20"
-                              : "bg-chalk text-muted border-rule"
+                              ? "bg-neon/[0.06] text-neon/80 border-neon/15"
+                              : "bg-smoke/40 text-fog/70 border-ash/40"
                           }`}
                         >
                           {tag}
@@ -80,9 +80,7 @@ export default function Projects() {
                   </div>
 
                   {/* Arrow */}
-                  <span className="text-signal opacity-0 group-hover:opacity-100 transition-opacity text-sm font-mono">
-                    →
-                  </span>
+                  <ArrowUpRight className="w-5 h-5 text-fog/30 group-hover:text-neon group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
                 </div>
               </a>
             );

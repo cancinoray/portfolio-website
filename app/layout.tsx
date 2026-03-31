@@ -1,31 +1,31 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Martian_Mono, Lora } from "next/font/google";
+import { Bricolage_Grotesque, DM_Mono, Crimson_Pro } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "../styles/globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-space-grotesk",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-bricolage",
 });
 
-const martianMono = Martian_Mono({
+const dmMono = DM_Mono({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-  variable: "--font-martian",
+  weight: ["300", "400", "500"],
+  variable: "--font-dm-mono",
 });
 
-const lora = Lora({
+const crimsonPro = Crimson_Pro({
   subsets: ["latin"],
   weight: ["400", "600"],
   style: ["normal", "italic"],
-  variable: "--font-lora",
+  variable: "--font-crimson",
 });
 
 export const metadata: Metadata = {
   title: "Raymond Cancino — Data Engineer & Developer",
   description:
-    "Building systems that teach, and teaching people to build.",
+    "Engineer. Educator. Data-driven builder.",
   keywords: [
     "cancinoray",
     "data engineer",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Raymond Cancino — Data Engineer & Developer",
     description:
-      "Building systems that teach, and teaching people to build.",
+      "Engineer. Educator. Data-driven builder.",
     type: "website",
     url: "https://github.com/cancinoray",
   },
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Raymond Cancino — Data Engineer & Developer",
     description:
-      "Building systems that teach, and teaching people to build.",
+      "Engineer. Educator. Data-driven builder.",
   },
   robots: {
     index: true,
@@ -67,9 +67,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${spaceGrotesk.variable} ${martianMono.variable} ${lora.variable} font-display antialiased bg-paper text-ink`}
+        className={`${bricolage.variable} ${dmMono.variable} ${crimsonPro.variable} font-display antialiased bg-obsidian text-cloud`}
       >
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
         </ThemeProvider>
       </body>

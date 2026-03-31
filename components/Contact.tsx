@@ -1,7 +1,7 @@
 "use client";
 
 import { useReveal } from "@/lib/useReveal";
-import { Mail, Linkedin, Github } from "lucide-react";
+import { Mail, Linkedin, Github, ArrowUpRight } from "lucide-react";
 
 const contactLinks = [
   {
@@ -26,7 +26,7 @@ const contactLinks = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 bg-slate relative z-10">
+    <section id="contact" className="pt-0 pb-24 relative z-10 border-t border-ash/30">
       <ContactInner />
     </section>
   );
@@ -36,43 +36,45 @@ function ContactInner() {
   const ref = useReveal();
 
   return (
-    <div ref={ref} className="container mx-auto px-4 reveal">
-      <p className="font-mono text-xs text-white/40 uppercase tracking-widest mb-2">
-        06 · Contact
-      </p>
+    <div ref={ref} className="max-w-6xl mx-auto px-6 reveal">
 
-      <div className="grid md:grid-cols-2 gap-12 mt-8">
+      <p className="section-num mb-3">06 — Contact</p>
+
+      <div className="grid md:grid-cols-2 gap-16 mt-10">
         {/* Left */}
         <div>
-          <h2 className="text-4xl md:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
+          <h2 className="text-4xl md:text-6xl font-display font-extrabold text-snow tracking-tighter leading-[1.05]">
             Let&apos;s
             <br />
-            <span className="text-signal">Build</span>
+            <span className="text-gradient">Build</span>
             <br />
             Something.
           </h2>
-          <p className="font-serif italic text-white/50 mt-4 text-lg">
+          <p className="font-serif italic text-fog mt-5 text-lg">
             Always open to interesting conversations and collaborations.
           </p>
 
-          <div className="space-y-3 mt-8">
+          <div className="space-y-2 mt-10">
             {contactLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 border border-white/10 rounded-lg hover:border-signal transition-colors group"
+                className="flex items-center justify-between p-4 border border-ash/50 rounded-xl hover:border-neon/30 hover:bg-neon/[0.02] transition-all duration-300 group"
               >
-                <link.icon className="w-5 h-5 text-white/40 group-hover:text-signal transition-colors" />
-                <div>
-                  <p className="text-[10px] font-mono text-white/40 uppercase tracking-wider">
-                    {link.label}
-                  </p>
-                  <p className="text-sm text-white/80 font-mono">
-                    {link.value}
-                  </p>
+                <div className="flex items-center gap-4">
+                  <link.icon className="w-4 h-4 text-fog/40 group-hover:text-neon transition-colors duration-300" />
+                  <div>
+                    <p className="text-[10px] font-mono text-fog/40 uppercase tracking-[0.2em]">
+                      {link.label}
+                    </p>
+                    <p className="text-sm text-cloud/80 font-mono mt-0.5">
+                      {link.value}
+                    </p>
+                  </div>
                 </div>
+                <ArrowUpRight className="w-4 h-4 text-fog/20 group-hover:text-neon transition-colors duration-300" />
               </a>
             ))}
           </div>
@@ -80,24 +82,30 @@ function ContactInner() {
 
         {/* Right */}
         <div className="flex items-center justify-center">
-          <div className="bg-white/5 border border-white/10 rounded-lg p-8 text-center max-w-sm w-full">
-            <span className="inline-flex items-center gap-2 text-[11px] font-mono text-mint bg-mint/10 border border-mint/20 px-3 py-1 rounded-full">
-              <span className="w-1.5 h-1.5 bg-mint rounded-full animate-pulse-dot" />
-              Available for hire
-            </span>
-            <h3 className="text-xl font-display font-extrabold text-white mt-4">
-              Ready to collaborate?
-            </h3>
-            <p className="font-mono text-xs text-white/50 mt-2 leading-relaxed">
-              I&apos;m looking for data engineering roles, freelance projects,
-              and startup partnerships.
-            </p>
-            <a
-              href="mailto:cancinoray@gmail.com"
-              className="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-signal text-white rounded-lg font-mono text-sm hover:bg-signal/90 transition-colors"
-            >
-              Send a Message →
-            </a>
+          <div className="relative w-full max-w-sm">
+            <div className="card-dark rounded-2xl p-8 text-center relative overflow-hidden">
+              {/* Subtle glow */}
+              <div className="absolute -top-20 -right-20 w-40 h-40 bg-neon/[0.05] rounded-full blur-3xl" />
+
+              <span className="inline-flex items-center gap-2 text-[11px] font-mono text-neon bg-neon/[0.06] border border-neon/15 px-3.5 py-1.5 rounded-full relative">
+                <span className="w-1.5 h-1.5 bg-neon rounded-full animate-pulse-dot" />
+                Available for hire
+              </span>
+              <h3 className="text-xl font-display font-bold text-snow mt-5 relative">
+                Ready to collaborate?
+              </h3>
+              <p className="font-serif text-sm text-fog/60 mt-3 leading-relaxed relative">
+                I&apos;m looking for data engineering roles, freelance projects,
+                and startup partnerships.
+              </p>
+              <a
+                href="mailto:cancinoray@gmail.com"
+                className="btn-primary mt-6 inline-flex relative"
+              >
+                Send a Message
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+            </div>
           </div>
         </div>
       </div>

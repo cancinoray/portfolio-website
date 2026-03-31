@@ -9,9 +9,26 @@ type ExperienceItem = {
   role: string;
   description: string;
   tags: string[];
+  current?: boolean;
 };
 
 const experiences: ExperienceItem[] = [
+  {
+    period: "Feb 2026–Present",
+    company: "Carnot Coaching Center",
+    type: "EdTech · PH",
+    role: "Co-Founder & Tech Lead",
+    description:
+      "Co-founded an EdTech startup targeting Philippine engineering licensure examinees. Leading frontend development, infrastructure setup, data strategy, and go-to-market planning for the August 2026 MELE cohort launch.",
+    tags: [
+      "Next.js",
+      "PostgreSQL",
+      "Vercel",
+      "Product Strategy",
+      "Team Leadership",
+    ],
+    current: true,
+  },
   {
     period: "Apr 2025–Oct 2025",
     company: "Mindwyre",
@@ -60,78 +77,75 @@ const experiences: ExperienceItem[] = [
       "Curriculum Design",
     ],
   },
-  {
-    period: "Feb 2026–Present",
-    company: "Carnot Coaching Center",
-    type: "EdTech · PH",
-    role: "Co-Founder & Tech Lead",
-    description:
-      "Co-founded an EdTech startup targeting Philippine engineering licensure examinees. Leading frontend development, infrastructure setup, data strategy, and go-to-market planning for the August 2026 MELE cohort launch.",
-    tags: [
-      "Next.js",
-      "PostgreSQL",
-      "Vercel",
-      "Product Strategy",
-      "Team Leadership",
-    ],
-  },
 ];
 
 export default function Experience() {
   const ref = useReveal();
 
   return (
-    <section id="experience" className="py-20 bg-chalk relative z-10">
-      <div ref={ref} className="container mx-auto px-4 reveal">
-        <p className="font-mono text-xs text-muted uppercase tracking-widest mb-2">
-          04 · Experience
-        </p>
-        <h2 className="text-3xl md:text-4xl font-display font-extrabold text-ink tracking-tight mb-10">
+    <section id="experience" className="pt-0 pb-24 relative z-10 border-t border-ash/30">
+
+      <div ref={ref} className="max-w-6xl mx-auto px-6 reveal">
+        <p className="section-num mb-3">04 — Experience</p>
+        <h2 className="text-3xl md:text-5xl font-display font-extrabold text-snow tracking-tighter mb-12">
           Work History
         </h2>
 
-        <div className="bg-surface border border-rule rounded-lg overflow-hidden">
-          {experiences.map((exp, i) => (
-            <div
-              key={exp.company}
-              className={`grid md:grid-cols-[200px_1fr] ${
-                i < experiences.length - 1 ? "border-b border-rule" : ""
-              }`}
-            >
-              {/* Left meta */}
-              <div className="bg-chalk md:border-r border-rule p-5">
-                <p className="text-sm font-mono text-signal font-medium">
-                  {exp.period}
-                </p>
-                <p className="font-display font-bold text-ink text-sm mt-1">
-                  {exp.company}
-                </p>
-                <p className="font-mono text-[10px] text-muted uppercase tracking-wider mt-0.5">
-                  {exp.type}
-                </p>
-              </div>
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-[7px] md:left-[7px] top-3 bottom-3 w-px bg-gradient-to-b from-neon/30 via-ash/40 to-transparent" />
 
-              {/* Right content */}
-              <div className="p-5">
-                <h3 className="font-display font-extrabold text-ink">
-                  {exp.role}
-                </h3>
-                <p className="text-sm text-muted mt-2 leading-relaxed">
-                  {exp.description}
-                </p>
-                <div className="flex flex-wrap gap-1.5 mt-3">
-                  {exp.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-chalk text-muted border border-rule"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+          <div className="space-y-0">
+            {experiences.map((exp) => (
+              <div
+                key={exp.company}
+                className="relative pl-10 pb-10 last:pb-0 group"
+              >
+                {/* Timeline dot */}
+                <div className={`absolute left-0 top-2 w-[15px] h-[15px] rounded-full border-2 transition-colors duration-300 ${
+                  exp.current
+                    ? "border-neon bg-neon/20 shadow-[0_0_10px_rgba(0,229,159,0.3)]"
+                    : "border-ash bg-graphite group-hover:border-neon/50"
+                }`} />
+
+                <div className="card-dark rounded-xl p-5 md:p-6">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
+                    <div>
+                      <h3 className="font-display font-bold text-snow text-lg">
+                        {exp.role}
+                      </h3>
+                      <p className="font-display font-medium text-neon/80 text-sm mt-0.5">
+                        {exp.company}
+                      </p>
+                    </div>
+                    <div className="text-right flex-shrink-0">
+                      <p className="text-[11px] font-mono text-fog">
+                        {exp.period}
+                      </p>
+                      <p className="text-[10px] font-mono text-fog/50 uppercase tracking-wider mt-0.5">
+                        {exp.type}
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="font-serif text-sm text-fog leading-relaxed">
+                    {exp.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1.5 mt-4">
+                    {exp.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-smoke/50 text-fog/70 border border-ash/40"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

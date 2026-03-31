@@ -1,21 +1,17 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 const RESUME_URL =
   "https://drive.google.com/file/d/10nixZnwbBtAYzB-wXK0ZibS3YzUrPl-D/view?usp=sharing";
 
-const chips = [
-  { label: "Data Engineer", primary: true },
-  { label: "Full-Stack Dev", primary: false },
-  { label: "EdTech Co-Founder", primary: false },
-  { label: "ME Educator", primary: false },
-  { label: "Python · SQL · Next.js", primary: false },
-];
+const roles = ["Data Engineer", "Full-Stack Dev", "EdTech Co-Founder", "ME Educator"];
 
 const metrics = [
-  { value: "5+", label: "Projects Shipped", accent: "bg-signal" },
-  { value: "3+", label: "Years in Data", accent: "bg-mint" },
-  { value: "4", label: "Companies", accent: "bg-amber" },
-  { value: "ME", label: "Engineering Roots", accent: "bg-slate" },
+  { value: "5+", label: "Projects Shipped" },
+  { value: "3+", label: "Years in Data" },
+  { value: "4", label: "Companies" },
+  { value: "ME", label: "Engineering Roots" },
 ];
 
 export default function Hero() {
@@ -27,64 +23,85 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center pt-24 pb-16"
+      className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden"
     >
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl">
-          {/* Eyebrow */}
-          <div
-            className="flex items-center gap-2 mb-6 animate-fade-up"
-            style={{ animationDelay: "0ms" }}
-          >
-            <span className="inline-block w-2 h-2 rounded-full bg-mint animate-pulse-dot" />
-            <span className="font-mono text-xs text-muted tracking-wide">
-              Open to opportunities · Philippines-based
-            </span>
-          </div>
+      {/* Background gradient orb */}
+      <div className="absolute top-1/4 -right-32 w-[500px] h-[500px] bg-neon/[0.04] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 -left-32 w-[400px] h-[400px] bg-volt/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
-          {/* Name */}
-          <h1
-            className="font-display font-extrabold tracking-tightest leading-[1.05] mb-4 animate-fade-up"
+      <div className="max-w-6xl mx-auto px-6 relative z-10 w-full">
+        <div className="max-w-4xl">
+          {/* Status badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0 }}
+            className="flex items-center gap-3 mb-8"
+          >
+            <span className="inline-flex items-center gap-2 text-[11px] font-mono text-neon/80 bg-neon/[0.06] border border-neon/10 px-3.5 py-1.5 rounded-full">
+              <span className="w-1.5 h-1.5 rounded-full bg-neon animate-pulse-dot" />
+              Open to opportunities
+            </span>
+            <span className="text-[11px] font-mono text-fog">
+              Philippines-based
+            </span>
+          </motion.div>
+
+          {/* Name — oversized, dramatic */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-display font-extrabold tracking-tightest leading-[0.95] mb-6"
             style={{
-              fontSize: "clamp(56px, 9vw, 108px)",
-              animationDelay: "100ms",
+              fontSize: "clamp(52px, 10vw, 120px)",
             }}
           >
-            Raymond{" "}
-            <span className="text-signal">Cancino.</span>
-          </h1>
+            <span className="text-snow">Raymond</span>
+            <br />
+            <span className="text-gradient glow-text">Cancino.</span>
+          </motion.h1>
 
           {/* Tagline */}
-          <p
-            className="font-serif italic text-muted text-lg md:text-xl max-w-xl mb-8 animate-fade-up"
-            style={{ animationDelay: "200ms" }}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="font-serif italic text-fog text-lg md:text-xl max-w-lg mb-8"
           >
-            Building systems that teach, and teaching people to build.
-          </p>
+            Engineer. Educator. Data-driven builder.
+          </motion.p>
 
-          {/* Chips */}
-          <div
-            className="flex flex-wrap gap-2 mb-8 animate-fade-up"
-            style={{ animationDelay: "300ms" }}
+          {/* Role chips */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="flex flex-wrap gap-2 mb-10"
           >
-            {chips.map((chip) => (
+            {roles.map((role, i) => (
               <span
-                key={chip.label}
-                className={`chip ${
-                  chip.primary
-                    ? "bg-slate text-white border-slate"
-                    : "bg-chalk text-muted border-rule"
+                key={role}
+                className={`text-[11px] font-mono px-3.5 py-1.5 rounded-full border transition-colors duration-300 ${
+                  i === 0
+                    ? "bg-neon/10 text-neon border-neon/25"
+                    : "bg-smoke/60 text-fog border-ash/60 hover:border-fog/40"
                 }`}
               >
-                {chip.label}
+                {role}
               </span>
             ))}
-          </div>
+            <span className="text-[11px] font-mono px-3.5 py-1.5 rounded-full border bg-smoke/60 text-fog border-ash/60">
+              Python · SQL · Next.js
+            </span>
+          </motion.div>
 
           {/* CTA Buttons */}
-          <div
-            className="flex flex-wrap gap-4 mb-12 animate-fade-up"
-            style={{ animationDelay: "400ms" }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="flex flex-wrap gap-4 mb-16"
           >
             <button onClick={scrollToProjects} className="btn-primary">
               View Projects
@@ -97,33 +114,43 @@ export default function Hero() {
             >
               View Resume
             </a>
-          </div>
+          </motion.div>
 
           {/* Metrics bar */}
-          <div
-            className="grid grid-cols-2 md:grid-cols-4 gap-0 border border-rule rounded-lg bg-surface overflow-hidden animate-fade-up"
-            style={{ animationDelay: "500ms" }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.55 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-0 border border-ash/50 rounded-xl bg-graphite/50 backdrop-blur-sm overflow-hidden"
           >
             {metrics.map((m, i) => (
               <div
                 key={m.label}
-                className={`relative p-5 text-center ${
-                  i < metrics.length - 1 ? "border-r border-rule" : ""
-                }`}
+                className={`relative p-6 text-center group ${
+                  i < metrics.length - 1
+                    ? "border-r border-ash/30"
+                    : ""
+                } ${i < 2 ? "border-b md:border-b-0 border-ash/30" : ""}`}
               >
-                <div
-                  className={`absolute top-0 left-0 right-0 h-[3px] ${m.accent}`}
-                />
-                <p className="text-2xl font-display font-extrabold tracking-tight">
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <p className="text-2xl md:text-3xl font-display font-extrabold text-snow tracking-tight">
                   {m.value}
                 </p>
-                <p className="text-[11px] font-mono text-muted uppercase tracking-wider mt-1">
+                <p className="text-[10px] font-mono text-fog uppercase tracking-[0.2em] mt-1.5">
                   {m.label}
                 </p>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
+
+        {/* Decorative vertical line */}
+        <motion.div
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: 1 }}
+          transition={{ duration: 1.2, delay: 0.8 }}
+          className="hidden lg:block absolute right-12 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-ash/40 to-transparent origin-top"
+        />
       </div>
     </section>
   );

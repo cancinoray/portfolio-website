@@ -3,57 +3,148 @@
 @tailwind utilities;
 
 @layer base {
+  /* Light theme */
   :root {
-    --ink: #0E0F0C;
-    --paper: #F0EDE4;
-    --chalk: #F5F4EE;
-    --surface: #FFFFFF;
-    --muted: #8A8880;
-    --rule: #DEDAD2;
-    --slate: #1B2A3B;
-    --signal: #0062FF;
-    --amber: #E8871A;
-    --mint: #00C896;
+    --color-void: #F0EFEB;
+    --color-obsidian: #FAFAF9;
+    --color-graphite: #F0EFEB;
+    --color-smoke: #FFFFFF;
+    --color-ash: #E2E0DA;
+    --color-stone: #C5C3BC;
+    --color-fog: #7A7870;
+    --color-cloud: #2A2926;
+    --color-snow: #0E0E0C;
+    --color-neon: #00A86B;
+    --color-ember: #E5692E;
+    --color-volt: #6B4FE0;
+    --grain-opacity: 0.015;
+    --grid-opacity: 0.04;
+  }
+
+  /* Dark theme */
+  .dark {
+    --color-void: #050508;
+    --color-obsidian: #0A0A0F;
+    --color-graphite: #12121A;
+    --color-smoke: #1A1A25;
+    --color-ash: #252530;
+    --color-stone: #3A3A4A;
+    --color-fog: #6C6C80;
+    --color-cloud: #DCDCE4;
+    --color-snow: #F5F5FA;
+    --color-neon: #00E59F;
+    --color-ember: #FF7A45;
+    --color-volt: #7B61FF;
+    --grain-opacity: 0.025;
+    --grid-opacity: 0.02;
   }
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 64px;
+  }
+
+  section[id] {
+    scroll-margin-top: 64px;
   }
 
   body {
-    @apply bg-paper text-ink;
+    background-color: var(--color-obsidian);
+    color: var(--color-cloud);
     position: relative;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
+  /* Film grain overlay */
   body::before {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: var(--grain-opacity);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    animation: grain 0.5s steps(1) infinite;
+  }
+
+  /* Subtle grid */
+  body::after {
     content: "";
     position: fixed;
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    background-image: linear-gradient(
-        rgba(0, 98, 255, 0.04) 1px,
-        transparent 1px
-      ),
-      linear-gradient(90deg, rgba(0, 98, 255, 0.04) 1px, transparent 1px);
-    background-size: 48px 48px;
+    background-image:
+      linear-gradient(rgba(0, 229, 159, var(--grid-opacity)) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 159, var(--grid-opacity)) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  ::selection {
+    background: rgba(0, 229, 159, 0.25);
+    color: var(--color-snow);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-obsidian);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-ash);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-neon);
   }
 }
 
 @layer components {
   .gradient-primary {
-    background: linear-gradient(135deg, #1B2A3B 0%, #0062FF 100%);
+    background: linear-gradient(135deg, var(--color-neon) 0%, var(--color-volt) 100%);
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-slate to-signal;
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--color-neon), var(--color-volt));
+  }
+
+  .text-gradient-warm {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--color-ember), var(--color-neon));
+  }
+
+  /* Glow effects */
+  .glow-neon {
+    box-shadow: 0 0 20px rgba(0, 229, 159, 0.15), 0 0 60px rgba(0, 229, 159, 0.05);
+  }
+
+  .glow-neon-strong {
+    box-shadow: 0 0 30px rgba(0, 229, 159, 0.25), 0 0 80px rgba(0, 229, 159, 0.1);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 40px rgba(0, 229, 159, 0.3);
+  }
+
+  :root .glow-text {
+    text-shadow: none;
   }
 
   /* Reveal animation */
   .reveal {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .reveal.visible {
@@ -68,14 +159,61 @@
 
   /* Buttons */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-mono text-sm tracking-wide transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-mono text-sm tracking-wide transition-all duration-300;
   }
 
   .btn-primary {
-    @apply btn bg-signal text-white hover:bg-signal/90 shadow-sm;
+    @apply btn font-medium;
+    background-color: var(--color-neon);
+    color: var(--color-void);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 30px rgba(0, 229, 159, 0.3);
+    transform: translateY(-2px);
   }
 
   .btn-ghost {
-    @apply btn border border-rule text-ink hover:border-signal hover:text-signal;
+    @apply btn;
+    border: 1px solid var(--color-ash);
+    color: var(--color-cloud);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--color-neon);
+    color: var(--color-neon);
+    box-shadow: 0 0 20px rgba(0, 229, 159, 0.1);
+  }
+
+  /* Section number */
+  .section-num {
+    @apply font-mono text-xs uppercase;
+    letter-spacing: 0.25em;
+    color: var(--color-fog);
+    opacity: 0.6;
+  }
+
+  /* Divider */
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--color-ash), transparent);
+  }
+
+  /* Card */
+  .card-dark {
+    background-color: var(--color-graphite);
+    border: 1px solid color-mix(in srgb, var(--color-ash) 50%, transparent);
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+  }
+
+  .card-dark:hover {
+    border-color: color-mix(in srgb, var(--color-neon) 30%, transparent);
+    box-shadow: 0 0 40px rgba(0, 229, 159, 0.06);
+  }
+
+  :root .card-dark:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   }
 }

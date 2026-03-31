@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import ThemeToggle from "./ThemeToggle";
 
 type NavItem = {
   name: string;
@@ -40,13 +41,13 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-paper/90 backdrop-blur-md shadow-sm border-b border-rule"
+          ? "bg-obsidian/80 backdrop-blur-xl border-b border-ash/50"
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 py-4">
+      <div className="max-w-6xl mx-auto px-6 py-5">
         <div className="flex items-center justify-between">
           <a
             href="#top"
@@ -54,13 +55,16 @@ export default function Navbar() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="font-mono text-lg tracking-tight text-ink hover:text-signal transition-colors"
+            className="group flex items-center gap-2"
           >
-            ray<span className="text-signal">.</span>cancino
+            <span className="inline-block w-2 h-2 rounded-full bg-neon group-hover:shadow-[0_0_12px_rgba(0,229,159,0.6)] transition-shadow duration-300" />
+            <span className="font-mono text-sm tracking-tight text-cloud hover:text-snow transition-colors">
+              ray.cancino
+            </span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) =>
               item.name === "Connect" ? (
                 <a
@@ -70,7 +74,7 @@ export default function Navbar() {
                     e.preventDefault();
                     handleSectionNavClick(item.href);
                   }}
-                  className="px-4 py-2 bg-slate text-white text-[11px] font-mono uppercase tracking-widest rounded hover:bg-signal transition-colors"
+                  className="ml-4 px-5 py-2 bg-neon/10 text-neon text-[11px] font-mono uppercase tracking-widest rounded-full border border-neon/20 hover:bg-neon/20 hover:border-neon/40 hover:shadow-[0_0_20px_rgba(0,229,159,0.15)] transition-all duration-300"
                 >
                   {item.name}
                 </a>
@@ -82,7 +86,7 @@ export default function Navbar() {
                     e.preventDefault();
                     handleSectionNavClick(item.href);
                   }}
-                  className="text-[11px] font-mono uppercase tracking-widest text-muted hover:text-signal transition-colors"
+                  className="px-4 py-2 text-[11px] font-mono uppercase tracking-widest text-fog hover:text-neon transition-colors duration-300"
                 >
                   {item.name}
                 </a>
@@ -90,25 +94,29 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-[11px] font-mono uppercase tracking-widest text-muted hover:text-signal transition-colors"
+                  className="px-4 py-2 text-[11px] font-mono uppercase tracking-widest text-fog hover:text-neon transition-colors duration-300"
                 >
                   {item.name}
                 </Link>
               )
             )}
+            <div className="ml-3">
+              <ThemeToggle />
+            </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          {/* Mobile: toggle + hamburger */}
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-ink hover:text-signal transition-colors"
+              className="p-2 text-fog hover:text-neon transition-colors"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-5 h-5" />
               )}
             </button>
           </div>
@@ -116,7 +124,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-rule pt-4 space-y-3">
+          <div className="md:hidden mt-6 pb-4 border-t border-ash/50 pt-6 space-y-1">
             {navItems.map((item) =>
               item.type === "section" ? (
                 <a
@@ -126,7 +134,7 @@ export default function Navbar() {
                     e.preventDefault();
                     handleSectionNavClick(item.href);
                   }}
-                  className="block text-[11px] font-mono uppercase tracking-widest text-muted hover:text-signal transition-colors py-1"
+                  className="block text-[11px] font-mono uppercase tracking-widest text-fog hover:text-neon transition-colors py-3 px-2 hover:bg-neon/5 rounded-lg"
                 >
                   {item.name}
                 </a>
@@ -135,7 +143,7 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-[11px] font-mono uppercase tracking-widest text-muted hover:text-signal transition-colors py-1"
+                  className="block text-[11px] font-mono uppercase tracking-widest text-fog hover:text-neon transition-colors py-3 px-2 hover:bg-neon/5 rounded-lg"
                 >
                   {item.name}
                 </Link>

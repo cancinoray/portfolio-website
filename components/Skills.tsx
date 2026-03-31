@@ -10,7 +10,7 @@ type SkillCategory = {
 
 const skillCategories: SkillCategory[] = [
   {
-    icon: "🔧",
+    icon: "⚡",
     label: "Data Engineering",
     skills: [
       { name: "Python", hot: true },
@@ -24,7 +24,7 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    icon: "☁️",
+    icon: "☁",
     label: "Cloud & Infra",
     skills: [
       { name: "GCP", hot: true },
@@ -38,7 +38,7 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    icon: "🌐",
+    icon: "◈",
     label: "Full-Stack Dev",
     skills: [
       { name: "Next.js", hot: true },
@@ -50,7 +50,7 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    icon: "🤖",
+    icon: "◉",
     label: "ML & Analytics",
     skills: [
       { name: "scikit-learn", hot: true },
@@ -61,7 +61,7 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    icon: "📊",
+    icon: "▦",
     label: "Visualization & BI",
     skills: [
       { name: "Tableau", hot: true },
@@ -71,7 +71,7 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    icon: "📐",
+    icon: "△",
     label: "Engineering",
     skills: [
       { name: "Mechanical Eng.", hot: true },
@@ -87,24 +87,23 @@ export default function Skills() {
   const ref = useReveal();
 
   return (
-    <section id="skills" className="py-20 bg-slate relative z-10">
-      <div ref={ref} className="container mx-auto px-4 reveal">
-        <p className="font-mono text-xs text-white/40 uppercase tracking-widest mb-2">
-          02 · Skills
-        </p>
-        <h2 className="text-3xl md:text-4xl font-display font-extrabold text-white tracking-tight mb-10">
+    <section id="skills" className="pt-0 pb-24 relative z-10 border-t border-ash/30">
+
+      <div ref={ref} className="max-w-6xl mx-auto px-6 reveal">
+        <p className="section-num mb-3">02 — Skills</p>
+        <h2 className="text-3xl md:text-5xl font-display font-extrabold text-snow tracking-tighter mb-12">
           Technical Stack
         </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {skillCategories.map((cat) => (
             <div
               key={cat.label}
-              className="bg-white/5 border border-white/10 rounded-lg p-5"
+              className="card-dark rounded-xl p-6 group"
             >
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-lg">{cat.icon}</span>
-                <span className="font-mono text-xs text-white/60 uppercase tracking-wider">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-neon/60 text-lg font-mono">{cat.icon}</span>
+                <span className="font-mono text-[11px] text-fog uppercase tracking-[0.15em]">
                   {cat.label}
                 </span>
               </div>
@@ -112,10 +111,10 @@ export default function Skills() {
                 {cat.skills.map((skill) => (
                   <span
                     key={skill.name}
-                    className={`text-[11px] font-mono px-2.5 py-1 rounded-full border ${
+                    className={`text-[11px] font-mono px-2.5 py-1 rounded-full border transition-all duration-300 ${
                       skill.hot
-                        ? "bg-mint/15 border-mint/35 text-mint"
-                        : "bg-white/[0.07] border-white/[0.12] text-white/75"
+                        ? "bg-neon/[0.08] border-neon/20 text-neon group-hover:bg-neon/[0.12] group-hover:border-neon/30"
+                        : "bg-smoke/50 border-ash/50 text-fog group-hover:border-ash"
                     }`}
                   >
                     {skill.name}
