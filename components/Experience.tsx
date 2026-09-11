@@ -32,9 +32,9 @@ const experiences: ExperienceItem[] = [
     role: "Founder",
     bullets: [
       "Built and lead a data/BI consultancy delivering \"Command Center\" dashboards for retail and e-commerce SMEs, consolidating inventory, sales, and margin data scattered across incompatible tools into a single real-time view.",
-      "Run client engagements end-to-end: data audits, systems integration, dashboard builds in Looker Studio, and ongoing monitoring retainers.",
+      "Run client engagements end-to-end: data audits, systems integration, dashboard builds, and ongoing monitoring retainers.",
     ],
-    tags: ["Looker Studio", "Data Audits", "Systems Integration", "BI", "SME"],
+    tags: ["Data Audits", "Systems Integration", "BI", "SME", "Dashboards"],
   },
   {
     period: "Apr 2025–Oct 2025",
