@@ -59,9 +59,17 @@ export default function Projects() {
 
                   {/* Content */}
                   <div className="min-w-0">
-                    <h3 className="font-display font-extrabold text-ink text-base md:text-lg group-hover:text-signal transition-colors">
-                      {project.title}
-                    </h3>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="font-display font-extrabold text-ink text-base md:text-lg group-hover:text-signal transition-colors">
+                        {project.title}
+                      </h3>
+                      {project.highlight && (
+                        <span className="inline-flex items-center gap-1.5 text-[10px] font-mono text-mint bg-mint/10 border border-mint/20 px-2 py-0.5 rounded-full">
+                          <span className="w-1.5 h-1.5 bg-mint rounded-full animate-pulse-dot" />
+                          {project.highlight}
+                        </span>
+                      )}
+                    </div>
                     <p className="text-[13px] text-muted line-clamp-2 mt-1">
                       {project.description}
                     </p>

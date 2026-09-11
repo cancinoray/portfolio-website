@@ -5,7 +5,8 @@ export const projects: Project[] = [
     title: "Carnot Coaching Center",
     description:
       "An EdTech platform targeting Philippine engineering licensure examinees. Built the full-stack web application, infrastructure, and data strategy for the August 2026 MELE cohort launch.",
-    stack: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS", "Vercel"],
+    highlight: "100+ students using it live",
+    stack: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS", "Vercel", "Railway"],
     image: "/assets/project-6.png",
     liveUrl: "https://www.carnot-coaching-center.com",
   },
