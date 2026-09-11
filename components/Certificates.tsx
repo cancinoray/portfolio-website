@@ -11,18 +11,20 @@ export default function Certificates() {
   return (
     <section id="certificates" className="py-20 bg-paper relative z-10">
       <div ref={ref} className="container mx-auto px-4 reveal">
-        <p className="font-mono text-xs text-muted uppercase tracking-widest mb-2">
-          05 · Certificates
-        </p>
-        <h2 className="text-3xl md:text-4xl font-display font-extrabold text-ink tracking-tight mb-10">
-          Credentials
-        </h2>
+        <div className="flex items-end justify-between border-b-2 border-ink pb-3 mb-10">
+          <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
+            Credentials
+          </h2>
+          <span className="font-mono text-xs text-muted">
+            {String(certificates.length).padStart(2, "0")} certs
+          </span>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {certificates.map((certificate) => (
             <div
               key={certificate.title}
-              className="bg-surface border border-rule rounded-lg overflow-hidden hover:border-signal transition-colors group"
+              className="bg-surface border border-rule overflow-hidden hover:border-signal transition-colors group"
             >
               {certificate.image ? (
                 <div className="relative w-full h-44 bg-chalk">

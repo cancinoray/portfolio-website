@@ -28,12 +28,14 @@ export default function Projects() {
   return (
     <section id="projects" className="py-20 bg-paper relative z-10">
       <div ref={ref} className="container mx-auto px-4 reveal">
-        <p className="font-mono text-xs text-muted uppercase tracking-widest mb-2">
-          03 · Projects
-        </p>
-        <h2 className="text-3xl md:text-4xl font-display font-extrabold text-ink tracking-tight mb-10">
-          Selected Work
-        </h2>
+        <div className="flex items-end justify-between border-b-2 border-ink pb-3 mb-10">
+          <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
+            Selected Work
+          </h2>
+          <span className="font-mono text-xs text-muted">
+            {String(projects.length).padStart(2, "0")} projects
+          </span>
+        </div>
 
         <div className="space-y-4">
           {projects.map((project, index) => {
@@ -47,7 +49,7 @@ export default function Projects() {
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block bg-surface border border-rule rounded-lg hover:border-signal transition-all duration-200 hover:translate-x-1"
+                className="group block bg-surface border border-rule hover:border-signal transition-all duration-200 hover:translate-x-1"
               >
                 <div className="grid grid-cols-[52px_1fr_auto] items-center gap-4 p-5">
                   {/* Index */}
@@ -67,7 +69,7 @@ export default function Projects() {
                       {tags.map((tag) => (
                         <span
                           key={tag}
-                          className={`text-[10px] font-mono px-2 py-0.5 rounded-full border ${
+                          className={`text-[10px] font-mono px-2 py-0.5 border ${
                             PRIMARY_STACK.includes(tag)
                               ? "bg-signal/[0.07] text-signal border-signal/20"
                               : "bg-chalk text-muted border-rule"

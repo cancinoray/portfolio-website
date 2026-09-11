@@ -17,12 +17,14 @@ export default function About() {
   const ref = useReveal();
 
   return (
-    <section id="about" className="py-20 bg-chalk relative z-10">
+    <section id="about" className="py-20 bg-paper relative z-10">
       <div ref={ref} className="container mx-auto px-4 reveal">
-        <p className="font-mono text-xs text-muted uppercase tracking-widest mb-2">
-          01 · About
-        </p>
-        <div className="grid md:grid-cols-2 gap-12 items-start mt-8">
+        <div className="flex items-end justify-between border-b-2 border-ink pb-3 mb-10">
+          <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
+            About
+          </h2>
+        </div>
+        <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Left — Photo */}
           <div className="relative">
             <div className="relative w-full aspect-[4/5] max-w-sm rounded-lg overflow-hidden shadow-lg">
@@ -33,7 +35,7 @@ export default function About() {
                 className="object-cover"
                 priority
               />
-              <div className="absolute bottom-3 left-3 bg-slate/90 text-white text-[11px] font-mono px-3 py-1.5 rounded">
+              <div className="absolute bottom-3 left-3 bg-ink/90 text-paper text-[11px] font-mono px-3 py-1.5 rounded-sm">
                 📍 Philippines
               </div>
             </div>
@@ -41,30 +43,30 @@ export default function About() {
 
           {/* Right — Bio */}
           <div className="space-y-5">
-            <blockquote className="font-serif italic text-lg text-muted leading-relaxed border-l-2 border-signal pl-4">
-              &ldquo;From thermal cycles to data pipelines — I bridge mechanical
-              engineering thinking with modern data and software
-              practice.&rdquo;
+            <blockquote className="font-body italic text-lg text-muted leading-relaxed border-l-2 border-signal pl-4">
+              &ldquo;I help teams that inherited chaos, mismatched platforms
+              and no shared schema, ship something that holds.&rdquo;
             </blockquote>
 
-            <p className="text-ink/80 leading-relaxed">
-              I&apos;m a Data Engineer with a strong foundation in engineering
-              and applied mathematics, focused on building scalable data
-              pipelines, analytics workflows, and AI/ML applications. With
-              experience across remote teams and global startups, I bring
-              technical expertise and adaptability to fast-paced environments.
+            <p className="font-body text-ink/80 leading-relaxed">
+              I&apos;m a Data Engineer who gets dropped into messy, real-world
+              data and makes it work. Across e-commerce (Wix, TikTok Shop,
+              Walmart, Shein), AdTech, and EdTech, I&apos;ve built pipelines
+              that survive inconsistent schemas, duplicate records, and
+              platforms that don&apos;t agree with each other, then shipped
+              the fix, not just the diagnosis.
             </p>
-            <p className="text-ink/80 leading-relaxed">
+            <p className="font-body text-ink/80 leading-relaxed">
               I specialize in Python, SQL, dbt, Airflow, and cloud platforms
-              (GCP, AWS, Snowflake, BigQuery), leveraging these tools to design
-              pipelines, automate workflows, and drive data-informed
-              decision-making. My background as a Mechanical Engineering
-              graduate and university instructor adds a structured,
-              problem-solving mindset to my tech career.
+              (GCP, AWS, Snowflake, BigQuery), and I deploy what I build
+              (Docker, Terraform, Kubernetes), not just prototype it. My
+              background as a Mechanical Engineering graduate and university
+              instructor means I can take an ambiguous problem, structure it,
+              and explain it clearly to whoever owns it, engineer or not.
             </p>
 
             {/* Meta grid */}
-            <div className="grid grid-cols-2 gap-0 border border-rule rounded-lg overflow-hidden mt-6">
+            <div className="grid grid-cols-2 gap-0 border border-rule mt-6">
               {meta.map((item) => (
                 <div
                   key={item.label}

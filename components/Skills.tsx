@@ -3,75 +3,70 @@
 import { useReveal } from "@/lib/useReveal";
 
 type SkillCategory = {
-  icon: string;
   label: string;
-  skills: { name: string; hot?: boolean }[];
+  skills: { name: string; slug?: string; hot?: boolean }[];
 };
 
 const skillCategories: SkillCategory[] = [
   {
-    icon: "🔧",
     label: "Data Engineering",
     skills: [
-      { name: "Python", hot: true },
+      { name: "Python", slug: "python", hot: true },
       { name: "SQL", hot: true },
-      { name: "Apache Airflow", hot: true },
+      { name: "Apache Airflow", slug: "apacheairflow", hot: true },
       { name: "dbt", hot: true },
-      { name: "Spark" },
-      { name: "Kafka" },
-      { name: "PostgreSQL" },
-      { name: "Pandas" },
+      { name: "OpenMetadata", hot: true },
+      { name: "Spark", slug: "apachespark" },
+      { name: "Kafka", slug: "apachekafka" },
+      { name: "PostgreSQL", slug: "postgresql" },
+      { name: "Pandas", slug: "pandas" },
     ],
   },
   {
-    icon: "☁️",
     label: "Cloud & Infra",
     skills: [
-      { name: "GCP", hot: true },
       { name: "AWS", hot: true },
-      { name: "BigQuery" },
-      { name: "Snowflake" },
-      { name: "Docker" },
-      { name: "Terraform" },
-      { name: "Vercel" },
-      { name: "Neon" },
+      { name: "GCP", slug: "googlecloud", hot: true },
+      { name: "Grafana", slug: "grafana", hot: true },
+      { name: "BigQuery", slug: "googlebigquery" },
+      { name: "Snowflake", slug: "snowflake" },
+      { name: "Docker", slug: "docker" },
+      { name: "Terraform", slug: "terraform" },
+      { name: "Vercel", slug: "vercel" },
+      { name: "Neon", slug: "neon" },
     ],
   },
   {
-    icon: "🌐",
     label: "Full-Stack Dev",
     skills: [
-      { name: "Next.js", hot: true },
-      { name: "TypeScript", hot: true },
-      { name: "React" },
-      { name: "Tailwind CSS" },
-      { name: "Node.js" },
-      { name: "REST/GraphQL APIs" },
+      { name: "Next.js", slug: "nextdotjs", hot: true },
+      { name: "TypeScript", slug: "typescript", hot: true },
+      { name: "React", slug: "react" },
+      { name: "Tailwind CSS", slug: "tailwindcss" },
+      { name: "Node.js", slug: "nodedotjs" },
+      { name: "REST/GraphQL APIs", slug: "graphql" },
     ],
   },
   {
-    icon: "🤖",
     label: "ML & Analytics",
     skills: [
-      { name: "scikit-learn", hot: true },
-      { name: "TensorFlow" },
-      { name: "Vertex AI" },
-      { name: "Hugging Face" },
+      { name: "scikit-learn", slug: "scikitlearn", hot: true },
+      { name: "TensorFlow", slug: "tensorflow" },
+      { name: "Vertex AI", slug: "googlecloud" },
+      { name: "Hugging Face", slug: "huggingface" },
       { name: "OpenAI APIs" },
     ],
   },
   {
-    icon: "📊",
     label: "Visualization & BI",
     skills: [
       { name: "Tableau", hot: true },
       { name: "Power BI", hot: true },
-      { name: "Metabase" },
-      { name: "Looker Studio" },
+      { name: "Metabase", slug: "metabase", hot: true },
+      { name: "Looker Studio", slug: "looker" },
     ],
   },
   {
-    icon: "📐",
     label: "Engineering",
     skills: [
       { name: "Mechanical Eng.", hot: true },
@@ -87,38 +82,45 @@ export default function Skills() {
   const ref = useReveal();
 
   return (
-    <section id="skills" className="py-20 bg-slate relative z-10">
-      <div ref={ref} className="container mx-auto px-4 reveal">
-        <p className="font-mono text-xs text-white/40 uppercase tracking-widest mb-2">
-          02 · Skills
-        </p>
-        <h2 className="text-3xl md:text-4xl font-display font-extrabold text-white tracking-tight mb-10">
-          Technical Stack
-        </h2>
+    <section id="skills" className="py-20 bg-paper relative z-10">
+      <div ref={ref} className="container mx-auto px-4 reveal max-w-3xl">
+        <div className="flex items-end justify-between border-b-2 border-ink pb-3 mb-10">
+          <h2 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
+            Technical Stack
+          </h2>
+        </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="space-y-7">
           {skillCategories.map((cat) => (
-            <div
-              key={cat.label}
-              className="bg-white/5 border border-white/10 rounded-lg p-5"
-            >
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-lg">{cat.icon}</span>
-                <span className="font-mono text-xs text-white/60 uppercase tracking-wider">
-                  {cat.label}
-                </span>
-              </div>
-              <div className="flex flex-wrap gap-2">
+            <div key={cat.label} className="flex flex-col md:flex-row md:items-start gap-2 md:gap-6">
+              <span className="font-body text-xs font-medium uppercase tracking-wide text-muted md:w-36 shrink-0 md:pt-1">
+                {cat.label}
+              </span>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
                 {cat.skills.map((skill) => (
-                  <span
-                    key={skill.name}
-                    className={`text-[11px] font-mono px-2.5 py-1 rounded-full border ${
-                      skill.hot
-                        ? "bg-mint/15 border-mint/35 text-mint"
-                        : "bg-white/[0.07] border-white/[0.12] text-white/75"
-                    }`}
-                  >
-                    {skill.name}
+                  <span key={skill.name} className="inline-flex items-center gap-1.5">
+                    {skill.slug && (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={`https://cdn.simpleicons.org/${skill.slug}`}
+                        alt=""
+                        width={16}
+                        height={16}
+                        className="w-4 h-4 shrink-0"
+                        onError={(e) => {
+                          e.currentTarget.style.display = "none";
+                        }}
+                      />
+                    )}
+                    <span
+                      className={
+                        skill.hot
+                          ? "font-semibold text-signal text-[15px]"
+                          : "text-ink text-[15px]"
+                      }
+                    >
+                      {skill.name}
+                    </span>
                   </span>
                 ))}
               </div>

@@ -10,16 +10,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0E0F0C",
-        paper: "#F0EDE4",
-        chalk: "#F5F4EE",
+        ink: "#0A0A0A",
+        paper: "#FAFAF9",
+        chalk: "#F1F1EE",
         surface: "#FFFFFF",
-        muted: "#8A8880",
-        rule: "#DEDAD2",
-        slate: "#1B2A3B",
-        signal: "#0062FF",
-        amber: "#E8871A",
-        mint: "#00C896",
+        muted: "#767676",
+        rule: "#E7E5E2",
+        slate: "#0A0A0A",
+        signal: "#1D4ED8",
+        amber: "#1D4ED8",
+        mint: "#1E9E6B",
         // Legacy aliases
         primary: {
           DEFAULT: "#1B2A3B",
@@ -37,9 +37,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],
-        mono: ["var(--font-martian)", "ui-monospace", "monospace"],
-        serif: ["var(--font-lora)", "Georgia", "serif"],
+        display: ["var(--font-archivo)", "system-ui", "sans-serif"],
+        body: ["var(--font-inter)", "system-ui", "sans-serif"],
+        mono: ["var(--font-jetbrains)", "ui-monospace", "monospace"],
       },
       letterSpacing: {
         tightest: "-0.04em",
@@ -50,6 +50,7 @@ const config: Config = {
         "slide-up": "slideUp 0.5s ease-out",
         "fade-up": "fadeUp 0.6s ease-out both",
         "pulse-dot": "pulseDot 2s ease-in-out infinite",
+        "blink": "blink 1.1s step-end infinite",
       },
       keyframes: {
         fadeIn: {
@@ -67,6 +68,9 @@ const config: Config = {
         pulseDot: {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.4" },
+        },
+        blink: {
+          "50%": { opacity: "0" },
         },
       },
     },

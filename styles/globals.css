@@ -4,16 +4,14 @@
 
 @layer base {
   :root {
-    --ink: #0E0F0C;
-    --paper: #F0EDE4;
-    --chalk: #F5F4EE;
+    --ink: #0A0A0A;
+    --paper: #FAFAF9;
+    --chalk: #F1F1EE;
     --surface: #FFFFFF;
-    --muted: #8A8880;
-    --rule: #DEDAD2;
-    --slate: #1B2A3B;
-    --signal: #0062FF;
-    --amber: #E8871A;
-    --mint: #00C896;
+    --muted: #767676;
+    --rule: #E7E5E2;
+    --signal: #1D4ED8;
+    --mint: #1E9E6B;
   }
 
   html {
@@ -22,33 +20,10 @@
 
   body {
     @apply bg-paper text-ink;
-    position: relative;
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background-image: linear-gradient(
-        rgba(0, 98, 255, 0.04) 1px,
-        transparent 1px
-      ),
-      linear-gradient(90deg, rgba(0, 98, 255, 0.04) 1px, transparent 1px);
-    background-size: 48px 48px;
   }
 }
 
 @layer components {
-  .gradient-primary {
-    background: linear-gradient(135deg, #1B2A3B 0%, #0062FF 100%);
-  }
-
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-slate to-signal;
-  }
-
   /* Reveal animation */
   .reveal {
     opacity: 0;
@@ -61,6 +36,11 @@
     transform: translateY(0);
   }
 
+  /* Command cursor */
+  .cursor-blink {
+    @apply font-mono text-signal animate-blink;
+  }
+
   /* Chip */
   .chip {
     @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-mono border;
@@ -68,14 +48,14 @@
 
   /* Buttons */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-mono text-sm tracking-wide transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-sm font-body font-medium text-sm transition-all duration-200;
   }
 
   .btn-primary {
-    @apply btn bg-signal text-white hover:bg-signal/90 shadow-sm;
+    @apply btn bg-ink text-paper hover:bg-signal;
   }
 
   .btn-ghost {
-    @apply btn border border-rule text-ink hover:border-signal hover:text-signal;
+    @apply btn border border-ink text-ink hover:border-signal hover:text-signal;
   }
 }

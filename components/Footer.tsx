@@ -6,7 +6,7 @@ export default function Footer() {
           © 2026 Raymond Cancino · Built with intention.
         </p>
         <p className="font-mono text-[11px] text-white/30">
-          Space Grotesk · Martian Mono · Lora
+          Archivo · Inter · JetBrains Mono
         </p>
       </div>
     </footer>

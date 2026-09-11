@@ -70,7 +70,7 @@ export default function Navbar() {
                     e.preventDefault();
                     handleSectionNavClick(item.href);
                   }}
-                  className="px-4 py-2 bg-slate text-white text-[11px] font-mono uppercase tracking-widest rounded hover:bg-signal transition-colors"
+                  className="px-4 py-2 bg-ink text-paper text-[11px] font-mono uppercase tracking-widest rounded-sm hover:bg-signal transition-colors"
                 >
                   {item.name}
                 </a>

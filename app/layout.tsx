@@ -1,34 +1,34 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Martian_Mono, Lora } from "next/font/google";
+import { Archivo, Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "../styles/globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const archivo = Archivo({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-space-grotesk",
+  weight: ["500", "700", "800"],
+  variable: "--font-archivo",
 });
 
-const martianMono = Martian_Mono({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-  variable: "--font-martian",
+  weight: ["400", "500", "600"],
+  variable: "--font-inter",
 });
 
-const lora = Lora({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["400", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-lora",
+  weight: ["400", "500", "600"],
+  variable: "--font-jetbrains",
 });
 
 export const metadata: Metadata = {
   title: "Raymond Cancino — Data Engineer & Developer",
   description:
-    "Building systems that teach, and teaching people to build.",
+    "I help e-commerce and ops teams make sense of data that doesn't agree with itself.",
   keywords: [
     "cancinoray",
     "data engineer",
+    "forward deployed engineer",
     "developer",
     "portfolio",
     "python",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Raymond Cancino — Data Engineer & Developer",
     description:
-      "Building systems that teach, and teaching people to build.",
+      "I help e-commerce and ops teams make sense of data that doesn't agree with itself.",
     type: "website",
     url: "https://github.com/cancinoray",
   },
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Raymond Cancino — Data Engineer & Developer",
     description:
-      "Building systems that teach, and teaching people to build.",
+      "I help e-commerce and ops teams make sense of data that doesn't agree with itself.",
   },
   robots: {
     index: true,
@@ -67,7 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${spaceGrotesk.variable} ${martianMono.variable} ${lora.variable} font-display antialiased bg-paper text-ink`}
+        className={`${archivo.variable} ${inter.variable} ${jetbrainsMono.variable} font-body antialiased bg-paper text-ink`}
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}
