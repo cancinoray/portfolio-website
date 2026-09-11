@@ -26,6 +26,17 @@ const experiences: ExperienceItem[] = [
     tags: ["AWS", "Airflow", "dbt", "OpenMetadata", "Metabase", "Grafana"],
   },
   {
+    period: "Mar 2026–Present",
+    company: "ARES Information Technology Solutions",
+    type: "Founder · Philippines",
+    role: "Founder",
+    bullets: [
+      "Built and lead a data/BI consultancy delivering \"Command Center\" dashboards for retail and e-commerce SMEs, consolidating inventory, sales, and margin data scattered across incompatible tools into a single real-time view.",
+      "Run client engagements end-to-end: data audits, systems integration, dashboard builds in Looker Studio, and ongoing monitoring retainers.",
+    ],
+    tags: ["Looker Studio", "Data Audits", "Systems Integration", "BI", "SME"],
+  },
+  {
     period: "Apr 2025–Oct 2025",
     company: "Mindwyre",
     type: "Remote · Idaho, USA",
@@ -103,6 +114,17 @@ const experiences: ExperienceItem[] = [
       "Team Leadership",
     ],
   },
+  {
+    period: "Jun 2026–Present",
+    company: "Data Engineering Pilipinas (DEP)",
+    type: "Volunteer · Remote, Philippines",
+    role: "Systems Lead",
+    bullets: [
+      "Serve as Systems Lead for DEP's community-powered Data Engineering Program, a 6-month build sprint where 50 selected builders ship a public GitHub project, a real data pipeline, and a deployable dashboard.",
+      "Support program systems and infrastructure for milestone review and mentorship across the 2026 cohort.",
+    ],
+    tags: ["Community", "Mentorship", "Python", "SQL"],
+  },
 ];
 
 export default function Experience() {
@@ -132,7 +154,9 @@ export default function Experience() {
               <div>
                 <p
                   className={`font-body text-[13px] ${
-                    i === 0 ? "text-signal font-medium" : "text-muted"
+                    exp.period.endsWith("Present")
+                      ? "text-signal font-medium"
+                      : "text-muted"
                   }`}
                 >
                   {exp.period}

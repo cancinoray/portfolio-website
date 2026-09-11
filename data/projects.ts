@@ -11,6 +11,14 @@ export const projects: Project[] = [
     liveUrl: "https://www.carnot-coaching-center.com",
   },
   {
+    title: "Data Analysis for Engineers",
+    description:
+      "A project-based Python course teaching engineers job-ready data analysis skills, from Pandas and NumPy to statistics and applied ML, through six case studies grounded in Philippine engineering practice.",
+    stack: ["Python", "Pandas", "NumPy", "SciPy", "Statistics"],
+    image: "/assets/project-6.png",
+    courseUrl: "https://www.carnot-coaching-center.com/courses/data-analysis",
+  },
+  {
     title: "2025 COMELEC Election Data Analytics Platform",
     description:
       "A comprehensive data engineering platform for collecting, processing, and analyzing election data from the 2025 Philippines Commission on Elections (COMELEC) national and local elections.",
