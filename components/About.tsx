@@ -3,8 +3,7 @@
 import Image from "next/image";
 import { useReveal } from "@/lib/useReveal";
 
-const RESUME_URL =
-  "https://drive.google.com/file/d/10nixZnwbBtAYzB-wXK0ZibS3YzUrPl-D/view?usp=sharing";
+const RESUME_URL = "/assets/resume.pdf";
 
 const meta = [
   { label: "Location", value: "Philippines" },

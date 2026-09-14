@@ -26,6 +26,7 @@ export const projects: Project[] = [
     ],
     image: "/assets/project-6.png",
     liveUrl: "https://www.carnot-coaching-center.com",
+    slug: "carnot-coaching-center",
   },
   {
     title: "Data Analysis for Engineers",
@@ -40,7 +41,7 @@ export const projects: Project[] = [
   {
     title: "2025 COMELEC Election Data Analytics Platform",
     description:
-      "A comprehensive data engineering platform for collecting, processing, and analyzing election data from the 2025 Philippines Commission on Elections (COMELEC) national and local elections.",
+      "An end-to-end platform that scrapes, processes, and transforms the 2025 Philippine national and local elections (92K+ files, ~8M candidate votes) into analytics-ready marts on GCP.",
     highlight: "92K+ files · ~8M votes",
     stack: [
       "Python",
@@ -58,7 +59,7 @@ export const projects: Project[] = [
   {
     title: "Stack Overflow End-to-End Data Pipeline",
     description:
-      "This project analyzes 14 years of Stack Overflow Developer Survey data to uncover valuable insights into technology trends, developer experiences, and industry shifts. The analysis covers a wide range of topics, including programming languages, salary distribution, education demographics, job roles, and predictions for future tech trends.",
+      "An end-to-end pipeline over 14 years of Stack Overflow Developer Survey data: scrape, GCS, PySpark, BigQuery, dbt, Looker, orchestrated with Airflow and provisioned with Terraform.",
     highlight: "14 years · 2011–2024",
     stack: [
       "Python",
@@ -78,7 +79,7 @@ export const projects: Project[] = [
   {
     title: "Amazon Sales Data Analysis",
     description:
-      "This project processes and analyzes Amazon sales data to generate insightful metrics and visualizations, including sales performance, return rates, profit margins, and fee analysis.",
+      "A two-script Python pipeline that extracts the fee detail buried in raw Amazon sales data and turns it into sales, return-rate, and profit-margin charts.",
     highlight: "Sales · returns · margins",
     stack: ["Python", "Pandas", "Matplotlib", "Data Processing"],
     features: [
@@ -93,7 +94,7 @@ export const projects: Project[] = [
   {
     title: "Weather Data Pipeline",
     description:
-      "This project collects, processes, and analyzes weather data to enable insightful visualizations and trend analysis using modern data tools.",
+      "A containerized ETL pipeline that pulls live weather from OpenWeatherMap into PostgreSQL, then serves it through Metabase dashboards, all reproducible with one Docker Compose command.",
     highlight: "3 services · 2 dashboards",
     stack: ["Python", "PostgreSQL", "Docker", "Metabase", "ETL"],
     features: [
@@ -108,7 +109,7 @@ export const projects: Project[] = [
   {
     title: "Machine Learning Zoomcamp Coursework",
     description:
-      "This project is a collection of coursework from the Machine Learning Zoomcamp, covering various topics in machine learning and data science.",
+      "Completed coursework from the Machine Learning Zoomcamp, taken end to end from regression and classification through to deployed models on Flask, Docker, and Kubernetes.",
     highlight: "9 modules · full ML lifecycle",
     stack: [
       "Python",

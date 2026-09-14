@@ -1,7 +1,6 @@
 "use client";
 
-const RESUME_URL =
-  "https://drive.google.com/file/d/10nixZnwbBtAYzB-wXK0ZibS3YzUrPl-D/view?usp=sharing";
+const RESUME_URL = "/assets/resume.pdf";
 
 export default function Hero() {
   const scrollToProjects = () => {
@@ -23,7 +22,8 @@ export default function Hero() {
           >
             <span className="inline-block w-2 h-2 rounded-full bg-mint animate-pulse-dot" />
             <span className="font-body text-xs font-medium uppercase tracking-wide text-muted">
-              Open to FDE, Data &amp; Software Engineering roles · Philippines-based
+              Open to FDE, Data &amp; Software Engineering roles ·
+              Philippines-based
             </span>
           </div>
 
@@ -46,7 +46,8 @@ export default function Hero() {
             className="font-display font-bold text-xl md:text-2xl text-muted mb-7 animate-fade-up"
             style={{ animationDelay: "200ms" }}
           >
-            Data Engineer <span className="text-ink">→</span> Forward Deployed Engineer
+            Data Engineer <span className="text-ink">→</span> Forward Deployed
+            Engineer
           </p>
 
           {/* Tagline */}
