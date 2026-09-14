@@ -13,6 +13,7 @@ tags:
     "Terraform",
   ]
 githubUrl: "https://github.com/cancinoray/stackoverflow-data-pipeline"
+ogImage: "/assets/projects/stackoverflow-data-pipeline/end-to-end.png"
 role: "Data Engineer"
 timeline: "Self-directed · 2025"
 highlights:

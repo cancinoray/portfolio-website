@@ -5,6 +5,7 @@ publishedAt: "2025-02-11"
 readingTime: "2 min read"
 tags: ["Python", "Pandas", "Matplotlib", "Data Processing", "Data Analysis"]
 githubUrl: "https://github.com/cancinoray/amazon-sales-data-analysis"
+ogImage: "/assets/projects/amazon-sales-data-analysis/sales-metrics.png"
 role: "Data Analyst"
 timeline: "Self-directed · 2025"
 highlights:

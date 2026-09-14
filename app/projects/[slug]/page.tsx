@@ -30,6 +30,11 @@ export async function generateMetadata({
   return {
     title: `${study.title} | Raymond Cancino`,
     description: study.summary,
+    openGraph: {
+      title: `${study.title} | Raymond Cancino`,
+      description: study.summary,
+      ...(study.ogImage ? { images: [study.ogImage] } : {}),
+    },
   };
 }
 

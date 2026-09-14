@@ -5,6 +5,7 @@ publishedAt: "2026-03-01"
 readingTime: "4 min read"
 tags: ["Data Engineering", "dbt", "ClickHouse", "Metabase", "Docker"]
 githubUrl: "https://github.com/cancinoray/ecommerce-logistics-analytics"
+ogImage: "/assets/projects/ecommerce-logistics-analytics/executive-overview.png"
 role: "Analytics Engineer"
 timeline: "Self-directed · 2026"
 highlights:

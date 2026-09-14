@@ -91,8 +91,8 @@ function ContactInner() {
               Ready to collaborate?
             </h3>
             <p className="font-body text-xs text-white/50 mt-2 leading-relaxed">
-              I&apos;m looking for data engineering roles, freelance projects,
-              and startup partnerships.
+              I&apos;m looking for Forward Deployed Engineer and data
+              engineering roles, freelance projects, and startup partnerships.
             </p>
             <a
               href="mailto:cancinoray@gmail.com"

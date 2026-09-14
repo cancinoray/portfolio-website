@@ -22,19 +22,24 @@ export function generateStaticParams() {
   return getBlogSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
 
   if (!post) {
-    return {
-      title: "Post Not Found | Kuya Ray",
-    };
+    return { title: "Post Not Found | Raymond Cancino" };
   }
 
   return {
-    title: `${post.title} | Kuya Ray`,
+    title: `${post.title} | Raymond Cancino`,
     description: post.summary,
+    openGraph: {
+      title: `${post.title} | Raymond Cancino`,
+      description: post.summary,
+      ...(post.coverImage ? { images: [post.coverImage] } : {}),
+    },
   };
 }
 
@@ -47,52 +52,54 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-white dark:bg-gray-900 py-16 px-4">
+    <main className="min-h-screen bg-paper py-16 px-4">
       <article className="container mx-auto max-w-3xl">
         <Link
           href="/blog"
-          className="inline-flex items-center text-primary dark:text-primary-light hover:underline mb-6"
+          className="inline-flex items-center text-[11px] font-mono uppercase tracking-widest text-muted hover:text-signal transition-colors mb-10"
         >
-          ← Back to blog
+          ← Back to writing
         </Link>
 
-        <header className="mb-10">
+        <header className="pb-8 mb-10 border-b-2 border-ink">
           {post.coverImage && (
-            <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-6 bg-gray-100 dark:bg-gray-800">
+            <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-8 bg-chalk">
               <Image
                 src={post.coverImage}
                 alt=""
                 fill
                 className="object-cover"
                 priority
-                sizes="(max-width: 768px) 100vw, 672px"
+                sizes="(max-width: 768px) 100vw, 768px"
               />
             </div>
           )}
+
           <div className="flex flex-wrap gap-2 mb-4">
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary dark:bg-primary-light/20 dark:text-primary-light"
+                className="text-[10px] font-mono px-2 py-0.5 border bg-signal/[0.07] text-signal border-signal/20"
               >
                 {tag}
               </span>
             ))}
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-3 text-gray-900 dark:text-white">
+          <h1 className="font-display font-extrabold tracking-tight text-3xl md:text-4xl mb-4 text-ink">
             {post.title}
           </h1>
 
-          <div className="text-sm text-gray-500 dark:text-gray-400">
-            <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time> ·{" "}
-            {post.readingTime}
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-mono uppercase tracking-widest text-muted">
+            <time dateTime={post.publishedAt}>
+              {formatDate(post.publishedAt)}
+            </time>
+            <span aria-hidden>·</span>
+            <span>{post.readingTime}</span>
           </div>
         </header>
 
-        <div className="text-lg text-gray-700 dark:text-gray-300">
-          <MarkdownContent content={post.content} />
-        </div>
+        <MarkdownContent content={post.content} variant="editorial" />
       </article>
     </main>
   );

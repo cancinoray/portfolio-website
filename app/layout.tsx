@@ -22,6 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cancinoray.netlify.app"),
   title: "Raymond Cancino | Data Engineer & Developer",
   description:
     "I help e-commerce and ops teams make sense of data that doesn't agree with itself.",
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     description:
       "I help e-commerce and ops teams make sense of data that doesn't agree with itself.",
     type: "website",
-    url: "https://github.com/cancinoray",
+    url: "https://cancinoray.netlify.app",
   },
   twitter: {
     card: "summary_large_image",

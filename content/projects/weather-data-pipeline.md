@@ -5,6 +5,7 @@ publishedAt: "2025-02-07"
 readingTime: "3 min read"
 tags: ["Python", "PostgreSQL", "Docker", "Metabase", "ETL"]
 githubUrl: "https://github.com/cancinoray/weather-api-pipeline-dashboard"
+ogImage: "/assets/projects/weather-data-pipeline/weather-data-across-time.png"
 role: "Data Engineer"
 timeline: "Self-directed · 2025"
 highlights:

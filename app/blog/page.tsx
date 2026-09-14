@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { getSortedBlogPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog | Kuya Ray",
-  description: "Stories, build notes, and lessons from my software journey.",
+  title: "Writing | Raymond Cancino",
+  description:
+    "Notes on data engineering, building products, and the work behind the projects.",
 };
 
 function formatDate(dateString: string): string {
   return new Date(`${dateString}T00:00:00Z`).toLocaleDateString("en-US", {
     year: "numeric",
-    month: "long",
+    month: "short",
     day: "numeric",
     timeZone: "UTC",
   });
@@ -21,76 +21,72 @@ export default function BlogPage() {
   const posts = getSortedBlogPosts();
 
   return (
-    <main className="min-h-screen bg-gray-50 dark:bg-gray-900 py-16 px-4">
-      <div className="container mx-auto max-w-4xl">
-        <div className="mb-10">
-          <Link
-            href="/"
-            className="inline-flex items-center text-primary dark:text-primary-light hover:underline mb-4"
-          >
-            ← Back to home
-          </Link>
-          <h1 className="text-4xl md:text-5xl font-bold mb-3 text-gray-900 dark:text-white">
-            Blog
+    <main className="min-h-screen bg-paper py-16 px-4">
+      <div className="container mx-auto max-w-3xl">
+        <Link
+          href="/"
+          className="inline-flex items-center text-[11px] font-mono uppercase tracking-widest text-muted hover:text-signal transition-colors mb-10"
+        >
+          ← Back to home
+        </Link>
+
+        <div className="flex items-end justify-between border-b-2 border-ink pb-3 mb-10">
+          <h1 className="font-display font-extrabold text-3xl md:text-4xl tracking-tight">
+            Writing
           </h1>
-          <p className="text-gray-600 dark:text-gray-300">
-            Notes on projects, learning, and growth as an engineer.
-          </p>
+          <span className="font-mono text-xs text-muted">
+            {String(posts.length).padStart(2, "0")} posts
+          </span>
         </div>
 
-        <div className="space-y-6">
-          {posts.map((post) => (
-            <article
+        <div className="space-y-4">
+          {posts.map((post, index) => (
+            <Link
               key={post.slug}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700"
+              href={`/blog/${post.slug}`}
+              className="group block bg-surface border border-rule hover:border-signal transition-all duration-200 hover:translate-x-1"
             >
-              {post.coverImage && (
-                <Link href={`/blog/${post.slug}`} className="block relative w-full aspect-video bg-gray-100 dark:bg-gray-700">
-                  <Image
-                    src={post.coverImage}
-                    alt=""
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 896px) 100vw, 896px"
-                  />
-                </Link>
-              )}
-              <div className="p-6">
-              <div className="flex flex-wrap gap-2 mb-4">
-                {post.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary dark:bg-primary-light/20 dark:text-primary-light"
-                  >
-                    {tag}
-                  </span>
-                ))}
+              <div className="grid grid-cols-[52px_1fr_auto] items-center gap-4 p-5">
+                <span className="font-mono text-sm text-muted">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <div className="min-w-0">
+                  <h2 className="font-display font-extrabold text-ink text-base md:text-lg group-hover:text-signal transition-colors">
+                    {post.title}
+                  </h2>
+                  <p className="text-[13px] text-muted line-clamp-2 mt-1">
+                    {post.summary}
+                  </p>
+                  <div className="flex flex-wrap items-center gap-2 mt-2">
+                    <time
+                      dateTime={post.publishedAt}
+                      className="font-mono text-[10px] uppercase tracking-wider text-muted"
+                    >
+                      {formatDate(post.publishedAt)}
+                    </time>
+                    <span className="text-muted" aria-hidden>
+                      ·
+                    </span>
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-muted">
+                      {post.readingTime}
+                    </span>
+                    {post.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[10px] font-mono px-2 py-0.5 border bg-chalk text-muted border-rule"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <span className="text-signal opacity-0 group-hover:opacity-100 transition-opacity text-sm font-mono">
+                  →
+                </span>
               </div>
-
-              <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="hover:text-primary dark:hover:text-primary-light transition-colors"
-                >
-                  {post.title}
-                </Link>
-              </h2>
-
-              <div className="text-sm text-gray-500 dark:text-gray-400 mb-3">
-                <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time> ·{" "}
-                {post.readingTime}
-              </div>
-
-              <p className="text-gray-700 dark:text-gray-300 mb-4">{post.summary}</p>
-
-              <Link
-                href={`/blog/${post.slug}`}
-                className="inline-flex items-center font-semibold text-primary dark:text-primary-light hover:underline"
-              >
-                Read post →
-              </Link>
-              </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

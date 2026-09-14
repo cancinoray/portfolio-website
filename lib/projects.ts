@@ -14,6 +14,7 @@ export interface ProjectCaseStudyMeta {
   coverImage?: string;
   githubUrl?: string;
   liveUrl?: string;
+  ogImage?: string;
   role?: string;
   timeline?: string;
   highlights?: string[];
@@ -39,6 +40,7 @@ function parseFrontmatter(slug: string, raw: string): ProjectCaseStudyMeta {
     coverImage: data.coverImage,
     githubUrl: data.githubUrl,
     liveUrl: data.liveUrl,
+    ogImage: data.ogImage,
     role: data.role,
     timeline: data.timeline,
     highlights: Array.isArray(data.highlights) ? data.highlights : [],
