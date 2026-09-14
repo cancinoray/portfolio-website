@@ -3,7 +3,15 @@ title: "Stack Overflow End-to-End Data Pipeline"
 summary: "A full cloud data pipeline that scrapes 14 years of Stack Overflow Developer Survey data and carries it from raw ZIP files to an interactive Looker dashboard."
 publishedAt: "2025-04-13"
 readingTime: "4 min read"
-tags: ["Data Engineering", "Apache Airflow", "dbt", "PySpark", "BigQuery", "Terraform"]
+tags:
+  [
+    "Data Engineering",
+    "Apache Airflow",
+    "dbt",
+    "PySpark",
+    "BigQuery",
+    "Terraform",
+  ]
 githubUrl: "https://github.com/cancinoray/stackoverflow-data-pipeline"
 role: "Data Engineer"
 timeline: "Self-directed · 2025"
@@ -16,7 +24,7 @@ highlights:
 
 ## Overview
 
-An end-to-end data pipeline built on the [Stack Overflow Developer Survey](https://survey.stackoverflow.co/) — 14 years of data covering 2011 through 2024. The goal was to practice the full lifecycle of a modern data stack: ingestion, processing, warehousing, modeling, and visualization, wired together with orchestration and infrastructure-as-code rather than run by hand.
+An end-to-end data pipeline built on the [Stack Overflow Developer Survey](https://survey.stackoverflow.co/): 14 years of data covering 2011 through 2024. The goal was to practice the full lifecycle of a modern data stack: ingestion, processing, warehousing, modeling, and visualization, wired together with orchestration and infrastructure-as-code rather than run by hand.
 
 ## The Problem
 
@@ -26,15 +34,15 @@ Survey data this large is awkward to analyze raw. It spans programming-language 
 
 The pipeline follows a clean stage-by-stage flow, provisioned with Terraform and driven by Airflow:
 
-| Stage               | What happens                                                                   |
-| ------------------- | ------------------------------------------------------------------------------ |
-| **Ingestion**       | Python scrapes the survey data and uploads raw ZIP files to Google Cloud Storage. |
-| **Processing**      | PySpark extracts CSVs from the GCS archives, then cleans and transforms them.  |
-| **Loading**         | The cleaned data is loaded into BigQuery.                                      |
-| **Modeling**        | dbt runs additional SQL transformations for analytics.                         |
-| **Visualization**   | The final dataset is served through Looker.                                    |
-| **Orchestration**   | Apache Airflow, running on Docker, manages the whole workflow.                 |
-| **Infrastructure**  | Terraform provisions the GCS buckets and BigQuery datasets/tables.             |
+| Stage              | What happens                                                                      |
+| ------------------ | --------------------------------------------------------------------------------- |
+| **Ingestion**      | Python scrapes the survey data and uploads raw ZIP files to Google Cloud Storage. |
+| **Processing**     | PySpark extracts CSVs from the GCS archives, then cleans and transforms them.     |
+| **Loading**        | The cleaned data is loaded into BigQuery.                                         |
+| **Modeling**       | dbt runs additional SQL transformations for analytics.                            |
+| **Visualization**  | The final dataset is served through Looker.                                       |
+| **Orchestration**  | Apache Airflow, running on Docker, manages the whole workflow.                    |
+| **Infrastructure** | Terraform provisions the GCS buckets and BigQuery datasets/tables.                |
 
 ![End-to-end pipeline: scraping and ingestion into GCS, PySpark processing, BigQuery loading, dbt modeling, and Looker visualization](/assets/projects/stackoverflow-data-pipeline/end-to-end.png)
 
@@ -42,7 +50,7 @@ A single DAG, `stackoverflow_end_to_end_dag`, coordinates the run: scrape or dow
 
 ## What It Does
 
-The dashboard lets you explore technology trends over the 14-year span, salary distributions sliced by skills, experience, and geography, educational demographics, and the changing makeup of tech occupations. It's the payoff stage of the pipeline — the point where the cleaned and modeled data finally becomes something you can read at a glance.
+The dashboard lets you explore technology trends over the 14-year span, salary distributions sliced by skills, experience, and geography, educational demographics, and the changing makeup of tech occupations. It's the payoff stage of the pipeline, the point where the cleaned and modeled data finally becomes something you can read at a glance.
 
 ![Survey analysis dashboard exploring technology trends, salaries, and developer demographics](/assets/projects/stackoverflow-data-pipeline/dashboard-analytics.jpg)
 

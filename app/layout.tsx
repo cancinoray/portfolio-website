@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Raymond Cancino — Data Engineer & Developer",
+  title: "Raymond Cancino | Data Engineer & Developer",
   description:
     "I help e-commerce and ops teams make sense of data that doesn't agree with itself.",
   keywords: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     icon: "/assets/favicon.png",
   },
   openGraph: {
-    title: "Raymond Cancino — Data Engineer & Developer",
+    title: "Raymond Cancino | Data Engineer & Developer",
     description:
       "I help e-commerce and ops teams make sense of data that doesn't agree with itself.",
     type: "website",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Raymond Cancino — Data Engineer & Developer",
+    title: "Raymond Cancino | Data Engineer & Developer",
     description:
       "I help e-commerce and ops teams make sense of data that doesn't agree with itself.",
   },

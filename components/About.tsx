@@ -25,7 +25,7 @@ export default function About() {
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Left — Photo */}
+          {/* Left: Photo */}
           <div className="relative">
             <div className="relative w-full aspect-[4/5] max-w-sm rounded-lg overflow-hidden shadow-lg">
               <Image
@@ -41,11 +41,11 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right — Bio */}
+          {/* Right: Bio */}
           <div className="space-y-5">
             <blockquote className="font-body italic text-lg text-muted leading-relaxed border-l-2 border-signal pl-4">
-              &ldquo;I help teams that inherited chaos, mismatched platforms
-              and no shared schema, ship something that holds.&rdquo;
+              &ldquo;I help teams that inherited chaos, mismatched platforms and
+              no shared schema, ship something that holds.&rdquo;
             </blockquote>
 
             <p className="font-body text-ink/80 leading-relaxed">
@@ -53,8 +53,8 @@ export default function About() {
               data and makes it work. Across e-commerce (Wix, TikTok Shop,
               Walmart, Shein), AdTech, and EdTech, I&apos;ve built pipelines
               that survive inconsistent schemas, duplicate records, and
-              platforms that don&apos;t agree with each other, then shipped
-              the fix, not just the diagnosis.
+              platforms that don&apos;t agree with each other, then shipped the
+              fix, not just the diagnosis.
             </p>
             <p className="font-body text-ink/80 leading-relaxed">
               I specialize in Python, SQL, dbt, Airflow, and cloud platforms

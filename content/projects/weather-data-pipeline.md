@@ -1,6 +1,6 @@
 ---
 title: "Weather Data Pipeline"
-summary: "A containerized ETL pipeline that pulls live weather from OpenWeatherMap into PostgreSQL, then serves it through Metabase dashboards — all reproducible with one Docker Compose command."
+summary: "A containerized ETL pipeline that pulls live weather from OpenWeatherMap into PostgreSQL, then serves it through Metabase dashboards, all reproducible with one Docker Compose command."
 publishedAt: "2025-02-07"
 readingTime: "3 min read"
 tags: ["Python", "PostgreSQL", "Docker", "Metabase", "ETL"]
@@ -20,18 +20,18 @@ A self-contained weather data pipeline built to practice the full collection-to-
 
 ## How It Works
 
-| Layer            | What happens                                                                                                          |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------- |
-| **Collection**   | `weather_pipeline.py` calls the OpenWeatherMap API and writes structured readings into the database.                  |
-| **Storage**      | PostgreSQL holds the data, with the schema provisioned up front from `database_setup.sql` on first boot.              |
-| **Visualization**| Metabase connects to PostgreSQL and renders the saved question views as dashboards.                                   |
-| **Orchestration**| Docker Compose brings up all three services together — the database, the Python pipeline, and Metabase — in one shot. |
+| Layer             | What happens                                                                                                        |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **Collection**    | `weather_pipeline.py` calls the OpenWeatherMap API and writes structured readings into the database.                |
+| **Storage**       | PostgreSQL holds the data, with the schema provisioned up front from `database_setup.sql` on first boot.            |
+| **Visualization** | Metabase connects to PostgreSQL and renders the saved question views as dashboards.                                 |
+| **Orchestration** | Docker Compose brings up all three services together (the database, the Python pipeline, and Metabase) in one shot. |
 
 The pipeline runs as its own service, so it can be triggered on schedule or manually with `docker compose exec weather_app python weather_pipeline.py`. Logs and generated plots are written out to the `logs/` and `plots/` directories for inspection.
 
 ## Dashboards
 
-Two Metabase views summarize the collected data — one tracking how conditions move over time, the other showing the distribution across readings.
+Two Metabase views summarize the collected data: one tracking how conditions move over time, the other showing the distribution across readings.
 
 ![Metabase dashboard: weather data across time](/assets/projects/weather-data-pipeline/weather-data-across-time.png)
 
@@ -39,7 +39,7 @@ Two Metabase views summarize the collected data — one tracking how conditions 
 
 ## Stack
 
-Python 3.11+ · PostgreSQL · Metabase · Docker Compose · OpenWeatherMap API — chosen so the whole pipeline spins up from a single command and stays free to run locally.
+Python 3.11+ · PostgreSQL · Metabase · Docker Compose · OpenWeatherMap API, chosen so the whole pipeline spins up from a single command and stays free to run locally.
 
 ## Takeaway
 
