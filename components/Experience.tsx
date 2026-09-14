@@ -13,6 +13,45 @@ type ExperienceItem = {
 
 const experiences: ExperienceItem[] = [
   {
+    period: "Jun 2026–Present",
+    company: "Data Engineering Pilipinas (DEP)",
+    type: "Volunteer · Remote, Philippines",
+    role: "Systems Lead",
+    bullets: [
+      "Serve as Systems Lead for DEP's community-powered Data Engineering Program, a 6-month build sprint where 50 selected builders ship a public GitHub project, a real data pipeline, and a deployable dashboard.",
+      "Support program systems and infrastructure for milestone review and mentorship across the 2026 cohort.",
+    ],
+    tags: ["Community", "Mentorship", "Python", "SQL"],
+  },
+  {
+    period: "Mar 2026–Present",
+    company: "ARES Information Technology Solutions",
+    type: "Founder · Philippines",
+    role: "Founder",
+    bullets: [
+      'Built and lead a data/BI consultancy delivering "Command Center" dashboards for retail and e-commerce SMEs, consolidating inventory, sales, and margin data scattered across incompatible tools into a single real-time view.',
+      "Run client engagements end-to-end: data audits, systems integration, dashboard builds, and ongoing monitoring retainers.",
+    ],
+    tags: ["Data Audits", "Systems Integration", "BI", "SME", "Dashboards"],
+  },
+  {
+    period: "Feb 2026–Present",
+    company: "Carnot Coaching Center",
+    type: "EdTech · PH",
+    role: "Co-Founder & Tech Lead",
+    bullets: [
+      "Co-founded an EdTech startup targeting Philippine engineering licensure examinees.",
+      "Leading frontend development, infrastructure setup, data strategy, and go-to-market planning for the August 2026 MELE cohort launch.",
+    ],
+    tags: [
+      "Next.js",
+      "PostgreSQL",
+      "Vercel",
+      "Product Strategy",
+      "Team Leadership",
+    ],
+  },
+  {
     period: "Oct 2025–Present",
     company: "Bogucki Enterprises",
     type: "Remote · Philadelphia, PA, USA",
@@ -24,17 +63,6 @@ const experiences: ExperienceItem[] = [
       "Set up Grafana dashboards and alerts for pipeline and infrastructure observability.",
     ],
     tags: ["AWS", "Airflow", "dbt", "OpenMetadata", "Metabase", "Grafana"],
-  },
-  {
-    period: "Mar 2026–Present",
-    company: "ARES Information Technology Solutions",
-    type: "Founder · Philippines",
-    role: "Founder",
-    bullets: [
-      "Built and lead a data/BI consultancy delivering \"Command Center\" dashboards for retail and e-commerce SMEs, consolidating inventory, sales, and margin data scattered across incompatible tools into a single real-time view.",
-      "Run client engagements end-to-end: data audits, systems integration, dashboard builds, and ongoing monitoring retainers.",
-    ],
-    tags: ["Data Audits", "Systems Integration", "BI", "SME", "Dashboards"],
   },
   {
     period: "Apr 2025–Oct 2025",
@@ -90,40 +118,7 @@ const experiences: ExperienceItem[] = [
       "Taught foundational engineering courses, including Algebra, Trigonometry, Calculus, and Thermodynamics.",
       "Supervised junior students in Mechanical Engineering, guiding them through academic and project-based work.",
     ],
-    tags: [
-      "Thermodynamics",
-      "Calculus",
-      "Applied Math",
-      "Curriculum Design",
-    ],
-  },
-  {
-    period: "Feb 2026–Present",
-    company: "Carnot Coaching Center",
-    type: "EdTech · PH",
-    role: "Co-Founder & Tech Lead",
-    bullets: [
-      "Co-founded an EdTech startup targeting Philippine engineering licensure examinees.",
-      "Leading frontend development, infrastructure setup, data strategy, and go-to-market planning for the August 2026 MELE cohort launch.",
-    ],
-    tags: [
-      "Next.js",
-      "PostgreSQL",
-      "Vercel",
-      "Product Strategy",
-      "Team Leadership",
-    ],
-  },
-  {
-    period: "Jun 2026–Present",
-    company: "Data Engineering Pilipinas (DEP)",
-    type: "Volunteer · Remote, Philippines",
-    role: "Systems Lead",
-    bullets: [
-      "Serve as Systems Lead for DEP's community-powered Data Engineering Program, a 6-month build sprint where 50 selected builders ship a public GitHub project, a real data pipeline, and a deployable dashboard.",
-      "Support program systems and infrastructure for milestone review and mentorship across the 2026 cohort.",
-    ],
-    tags: ["Community", "Mentorship", "Python", "SQL"],
+    tags: ["Thermodynamics", "Calculus", "Applied Math", "Curriculum Design"],
   },
 ];
 

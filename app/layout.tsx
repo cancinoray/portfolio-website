@@ -65,7 +65,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body
         className={`${archivo.variable} ${inter.variable} ${jetbrainsMono.variable} font-body antialiased bg-paper text-ink`}
       >

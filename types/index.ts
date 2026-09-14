@@ -8,6 +8,8 @@ export interface Project {
   githubUrl?: string;
   liveUrl?: string;
   courseUrl?: string;
+  /** When set, the project links to an internal /projects/<slug> case-study page. */
+  slug?: string;
 }
 
 export interface Certificate {
