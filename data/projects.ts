@@ -4,8 +4,8 @@ export const projects: Project[] = [
   {
     title: "E-Commerce Logistics Analytics",
     description:
-      "An analytics-engineering pipeline for the Olist Brazilian E-Commerce dataset (99k+ orders), focused on delivery speed, freight cost, seller performance, and data quality. Built with ClickHouse, dbt, and Metabase, fully containerized with Docker.",
-    highlight: "26 dbt models · 4 dashboards",
+      "An analytics-engineering pipeline for the Olist Brazilian E-Commerce dataset (99,441 orders, 2016–2018; dataset licensed CC BY-NC-SA 4.0), focused on delivery speed, freight cost, seller performance, and data quality. Built with ClickHouse, dbt, and Metabase, fully containerized with Docker.",
+    highlight: "99,441 orders · 26 dbt models · 3 dashboards + 1 home",
     stack: ["ClickHouse", "dbt", "Metabase", "Docker", "Python", "SQL"],
     image: "/assets/project-6.png",
     githubUrl: "https://github.com/cancinoray/ecommerce-logistics-analytics",
