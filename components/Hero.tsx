@@ -1,6 +1,6 @@
 "use client";
 
-const RESUME_URL = "/assets/resume.pdf";
+import { RESUME_URL } from "@/lib/resume";
 
 export default function Hero() {
   const scrollToProjects = () => {

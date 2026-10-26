@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { RESUME_URL } from "@/lib/resume";
 import { useReveal } from "@/lib/useReveal";
-
-const RESUME_URL = "/assets/resume.pdf";
 
 const meta = [
   { label: "Location", value: "Philippines" },
