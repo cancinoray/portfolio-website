@@ -2,6 +2,13 @@ import { Certificate } from "@/types";
 
 export const certificates: Certificate[] = [
   {
+    title: "Applied Data Science Lab",
+    issuer: "WorldQuant University",
+    date: "2026",
+    credentialUrl: "https://www.credly.com/badges/c7bfe8cd-3e7e-4c8d-a2c5-c533de00db49",
+    image: "/assets/certificates/11.png"
+  },
+  {
     title: "ClickHouse Data Warehousing Associate",
     issuer: "ClickHouse",
     date: "2026",

@@ -27,12 +27,12 @@ export default function Certificates() {
               className="bg-surface border border-rule overflow-hidden hover:border-signal transition-colors group"
             >
               {certificate.image ? (
-                <div className="relative w-full h-44 bg-chalk">
+                <div className="relative w-full aspect-[4/3] bg-chalk border-b border-rule">
                   <Image
                     src={certificate.image}
                     alt={certificate.title}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
               ) : (
