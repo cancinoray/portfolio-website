@@ -6,8 +6,9 @@ export const projects: Project[] = [
     description:
       "An analytics-engineering pipeline for the Olist Brazilian E-Commerce dataset (99,441 orders, 2016–2018; dataset licensed CC BY-NC-SA 4.0), focused on delivery speed, freight cost, seller performance, and data quality. Built with ClickHouse, dbt, and Metabase, fully containerized with Docker.",
     highlight: "99,441 orders · 26 dbt models · 3 dashboards + 1 home",
+    kind: "Analytics engineering",
     stack: ["ClickHouse", "dbt", "Metabase", "Docker", "Python", "SQL"],
-    image: "/assets/project-6.png",
+    image: "/assets/projects/cards/ecommerce-logistics-analytics.jpg",
     githubUrl: "https://github.com/cancinoray/ecommerce-logistics-analytics",
     slug: "ecommerce-logistics-analytics",
   },
@@ -16,6 +17,7 @@ export const projects: Project[] = [
     description:
       "An EdTech platform targeting Philippine engineering licensure examinees. Built the full-stack web application, infrastructure, and data strategy for the August 2026 MELE cohort launch.",
     highlight: "100+ students using it live",
+    kind: "EdTech platform",
     stack: [
       "Next.js",
       "TypeScript",
@@ -24,17 +26,40 @@ export const projects: Project[] = [
       "Vercel",
       "Railway",
     ],
-    image: "/assets/project-6.png",
+    image: "/assets/projects/cards/carnot-coaching-center.jpg",
     liveUrl: "https://www.carnot-coaching-center.com",
     slug: "carnot-coaching-center",
+  },
+  {
+    title: "Ar-Es Digital Business Card",
+    description:
+      "A digital business card platform for Ar-Es Gift Shop. Each printed card carries a QR code that opens a profile with contact details, shop links, and a one-tap vCard save, backed by a public directory and a self-serve submission flow for new cards.",
+    highlight: "QR → profile → vCard",
+    kind: "Web app",
+    stack: ["Next.js", "Tailwind CSS", "REST API", "Railway"],
+    image: "/assets/projects/cards/ar-es-digital-business-card.jpg",
+    liveUrl: "https://digital-profile.ares-ph.com",
+    slug: "ar-es-digital-business-card",
+  },
+  {
+    title: "WaisFox",
+    description:
+      "A writing platform for study notes, poetry, and journal entries, organized into topics, categories, and tags. A React front end talks to its own JSON API, with full-text search, authenticated author tooling for drafts and image uploads, and newsletter signup.",
+    highlight: "Topics · categories · tags · search",
+    kind: "Publishing platform",
+    stack: ["React", "Vite", "REST API", "Vercel"],
+    image: "/assets/projects/cards/waisfox.jpg",
+    liveUrl: "https://www.waisfox.com",
+    slug: "waisfox",
   },
   {
     title: "Data Analysis for Engineers",
     description:
       "A project-based Python course teaching engineers job-ready data analysis skills, from Pandas and NumPy to statistics and applied ML, through six case studies grounded in Philippine engineering practice.",
     highlight: "6 modules · 6 engineering fields",
+    kind: "Course",
     stack: ["Python", "Pandas", "NumPy", "SciPy", "Statistics"],
-    image: "/assets/project-6.png",
+    image: "/assets/projects/cards/data-analysis-for-engineers.jpg",
     courseUrl: "https://www.carnot-coaching-center.com/courses/data-analysis",
     slug: "data-analysis-for-engineers",
   },
@@ -43,6 +68,7 @@ export const projects: Project[] = [
     description:
       "An end-to-end platform that scrapes, processes, and transforms the 2025 Philippine national and local elections (92K+ files, ~8M candidate votes) into analytics-ready marts on GCP.",
     highlight: "92K+ files · ~8M votes",
+    kind: "Data platform",
     stack: [
       "Python",
       "GCP",
@@ -51,7 +77,6 @@ export const projects: Project[] = [
       "Terraform",
       "dbt",
     ],
-    image: "/assets/project-6.png",
     githubUrl:
       "https://github.com/cancinoray/2025-comelec-national-and-local-election",
     slug: "2025-comelec-election-analytics",
@@ -61,6 +86,7 @@ export const projects: Project[] = [
     description:
       "An end-to-end pipeline over 14 years of Stack Overflow Developer Survey data: scrape, GCS, PySpark, BigQuery, dbt, Looker, orchestrated with Airflow and provisioned with Terraform.",
     highlight: "14 years · 2011–2024",
+    kind: "Data pipeline",
     stack: [
       "Python",
       "Docker",
@@ -72,7 +98,7 @@ export const projects: Project[] = [
       "PySpark",
       "Pandas",
     ],
-    image: "/assets/project-6.png",
+    image: "/assets/projects/cards/stackoverflow-data-pipeline.jpg",
     githubUrl: "https://github.com/cancinoray/stackoverflow-data-pipeline",
     slug: "stackoverflow-data-pipeline",
   },
@@ -81,13 +107,14 @@ export const projects: Project[] = [
     description:
       "A two-script Python pipeline that extracts the fee detail buried in raw Amazon sales data and turns it into sales, return-rate, and profit-margin charts.",
     highlight: "Sales · returns · margins",
+    kind: "Analysis",
     stack: ["Python", "Pandas", "Matplotlib", "Data Processing"],
     features: [
       "Data Processing: Extracts detailed fee information from raw Amazon sales data.",
       "Sales Metrics: Calculates total sales, net proceeds, return rates, and profit margins.",
       "Visualizations: Generates bar charts for sales, return rates, profit margins, and fee analysis.",
     ],
-    image: "/assets/project-3.png",
+    image: "/assets/projects/cards/amazon-sales-data-analysis.jpg",
     githubUrl: "https://github.com/cancinoray/amazon-sales-data-analysis",
     slug: "amazon-sales-data-analysis",
   },
@@ -96,13 +123,14 @@ export const projects: Project[] = [
     description:
       "A containerized ETL pipeline that pulls live weather from OpenWeatherMap into PostgreSQL, then serves it through Metabase dashboards, all reproducible with one Docker Compose command.",
     highlight: "3 services · 2 dashboards",
+    kind: "ETL pipeline",
     stack: ["Python", "PostgreSQL", "Docker", "Metabase", "ETL"],
     features: [
       "Data Collection: Fetches real-time and historical weather data from a public API.",
       "Data Storage and Processing: Cleans and stores data in PostgreSQL using Python ETL scripts within Docker containers.",
       "Visualizations: Uses Metabase to create dashboards showing temperature trends, humidity levels, and weather anomalies.",
     ],
-    image: "/assets/project-4.png",
+    image: "/assets/projects/cards/weather-data-pipeline.jpg",
     githubUrl: "https://github.com/cancinoray/weather-api-pipeline-dashboard",
     slug: "weather-data-pipeline",
   },
@@ -111,6 +139,7 @@ export const projects: Project[] = [
     description:
       "Completed coursework from the Machine Learning Zoomcamp, taken end to end from regression and classification through to deployed models on Flask, Docker, and Kubernetes.",
     highlight: "9 modules · full ML lifecycle",
+    kind: "Coursework",
     stack: [
       "Python",
       "scikit-learn",
@@ -130,7 +159,6 @@ export const projects: Project[] = [
       "Module 8: Serverless Deep Learning",
       "Module 9: Kubernetes & TensorFlow Serving",
     ],
-    image: "/assets/project-5.png",
     githubUrl: "https://github.com/cancinoray/ml-zoomcamp-2024",
     courseUrl: "https://github.com/DataTalksClub/machine-learning-zoomcamp",
     slug: "ml-zoomcamp",

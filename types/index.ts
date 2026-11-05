@@ -2,9 +2,12 @@ export interface Project {
   title: string;
   description: string;
   highlight?: string;
+  /** Short label for the kind of work, shown above the title on the card. */
+  kind?: string;
   features?: string[];
   stack?: string[];
-  image: string;
+  /** 16:10 card cover. Projects without one render a text plate instead. */
+  image?: string;
   githubUrl?: string;
   liveUrl?: string;
   courseUrl?: string;

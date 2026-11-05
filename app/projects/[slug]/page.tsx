@@ -58,7 +58,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         <header className="pb-8 mb-10 border-b-2 border-ink">
           {study.coverImage && (
-            <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-8 bg-chalk">
+            <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden mb-8 bg-chalk">
               <Image
                 src={study.coverImage}
                 alt=""

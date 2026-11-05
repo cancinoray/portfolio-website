@@ -2,6 +2,8 @@
 
 import { useReveal } from "@/lib/useReveal";
 import Link from "next/link";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/projects";
 
 const PRIMARY_STACK = [
@@ -23,6 +25,9 @@ const PRIMARY_STACK = [
   "TypeScript",
 ];
 
+const CARD_CLASS =
+  "group flex flex-col bg-surface border border-rule hover:border-signal transition-colors overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal";
+
 export default function Projects() {
   const ref = useReveal();
 
@@ -38,43 +43,70 @@ export default function Projects() {
           </span>
         </div>
 
-        <div className="space-y-4">
-          {projects.map((project, index) => {
-            const externalLink =
-              project.githubUrl || project.liveUrl || project.courseUrl;
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {projects.map((project) => {
+            const tags = project.stack || [];
+            const externalUrl =
+              project.liveUrl ?? project.githubUrl ?? project.courseUrl;
             const href = project.slug
               ? `/projects/${project.slug}`
-              : externalLink ?? "#";
-            const tags = project.stack || [];
+              : externalUrl ?? "#";
+            const callToAction = project.slug
+              ? "Case study"
+              : project.liveUrl
+              ? "Visit site"
+              : "View project";
+            // Projects without cover art lead with their headline figure instead.
+            const [plateHeadline, ...plateDetail] = (
+              project.highlight ??
+              project.kind ??
+              ""
+            ).split(" · ");
 
-            const cardClass =
-              "group block bg-surface border border-rule hover:border-signal transition-all duration-200 hover:translate-x-1";
+            const card = (
+              <>
+                <div className="relative w-full aspect-[16/10] bg-chalk border-b border-rule overflow-hidden">
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} preview`}
+                      fill
+                      className="object-cover motion-safe:transition-transform motion-safe:duration-500 motion-safe:group-hover:scale-[1.02]"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex flex-col justify-center bg-chalk px-6">
+                      <p className="font-display font-extrabold text-ink text-4xl leading-[0.95] tracking-tight">
+                        {plateHeadline}
+                      </p>
+                      {plateDetail.length > 0 && (
+                        <p className="mt-2.5 font-body text-[13px] text-muted">
+                          {plateDetail.join(" · ")}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </div>
 
-            const cardContent = (
-              <div className="grid grid-cols-[52px_1fr_auto] items-center gap-4 p-5">
-                {/* Index */}
-                <span className="font-mono text-sm text-muted">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
-                {/* Content */}
-                <div className="min-w-0">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <h3 className="font-display font-extrabold text-ink text-base md:text-lg group-hover:text-signal transition-colors">
-                      {project.title}
-                    </h3>
-                    {project.highlight && (
-                      <span className="inline-flex items-center gap-1.5 text-[10px] font-mono text-mint bg-mint/10 border border-mint/20 px-2 py-0.5 rounded-full">
-                        <span className="w-1.5 h-1.5 bg-mint rounded-full animate-pulse-dot" />
-                        {project.highlight}
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-[13px] text-muted line-clamp-2 mt-1">
+                <div className="flex flex-1 flex-col p-5">
+                  {project.kind && (
+                    <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
+                      {project.kind}
+                    </p>
+                  )}
+                  <h3 className="mt-1.5 font-display font-extrabold text-ink text-base md:text-lg leading-snug group-hover:text-signal transition-colors">
+                    {project.title}
+                  </h3>
+                  {project.highlight && project.image && (
+                    <span className="mt-2 inline-flex w-fit items-center gap-1.5 text-[10px] font-mono text-mint bg-mint/10 border border-mint/20 px-2 py-0.5 rounded-full">
+                      <span className="w-1.5 h-1.5 bg-mint rounded-full animate-pulse-dot" />
+                      {project.highlight}
+                    </span>
+                  )}
+                  <p className="text-[13px] text-muted line-clamp-3 mt-2">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-1.5 mt-2">
-                    {tags.map((tag) => (
+                  <div className="flex flex-wrap gap-1.5 mt-3">
+                    {tags.slice(0, 4).map((tag) => (
                       <span
                         key={tag}
                         className={`text-[10px] font-mono px-2 py-0.5 border ${
@@ -86,19 +118,23 @@ export default function Projects() {
                         {tag}
                       </span>
                     ))}
+                    {tags.length > 4 && (
+                      <span className="text-[10px] font-mono px-2 py-0.5 border border-rule text-muted/70">
+                        +{tags.length - 4}
+                      </span>
+                    )}
                   </div>
+                  <span className="mt-auto pt-4 inline-flex items-center gap-1.5 font-mono text-xs text-signal">
+                    {callToAction}
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </span>
                 </div>
-
-                {/* Arrow */}
-                <span className="text-signal opacity-0 group-hover:opacity-100 transition-opacity text-sm font-mono">
-                  →
-                </span>
-              </div>
+              </>
             );
 
             return project.slug ? (
-              <Link key={project.title} href={href} className={cardClass}>
-                {cardContent}
+              <Link key={project.title} href={href} className={CARD_CLASS}>
+                {card}
               </Link>
             ) : (
               <a
@@ -106,9 +142,9 @@ export default function Projects() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cardClass}
+                className={CARD_CLASS}
               >
-                {cardContent}
+                {card}
               </a>
             );
           })}
