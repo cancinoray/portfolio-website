@@ -23,6 +23,8 @@ Data engineering work shows up as pipelines, schemas, and dashboards. This repos
 
 Seven independent projects, one per method, all built the same way. Ask a specific question about a public dataset. Treat cleaning as a set of decisions with a cost. Establish a baseline before reaching for a model. Improve on that baseline without fooling yourself. Close with a plain-language answer, the limitations it carries, and what would change it.
 
+This workflow comes from [WorldQuant University's Applied Data Science Lab](https://www.credly.com/badges/c7bfe8cd-3e7e-4c8d-a2c5-c533de00db49), which I completed in 2026. Every project here applies it to independent public datasets rather than coursework, and every question, notebook, and write-up is my own.
+
 The notebooks are committed already executed, so their charts and metrics render on GitHub without installing anything. The [live dashboard](https://data-science-portfolio-cancinoray.streamlit.app/) is a visual index over the whole body of work: one overview page plus a page per project with headline metrics, two charts, the method, and the caveat.
 
 ## The Seven Projects
