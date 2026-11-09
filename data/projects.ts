@@ -25,6 +25,24 @@ export const projects: Project[] = [
     slug: "data-science-portfolio",
   },
   {
+    title: "Stockroom",
+    description:
+      "Order and inventory management for a small distributor: reservations that are all-or-nothing, a ledger that explains every count, and an on-call agent that investigates the app's own alerts. Built with an AI agent team as the AI Dev Tools Zoomcamp final project.",
+    highlight: "20 concurrent orders · 1 holds the last unit",
+    kind: "Full-stack · AI ops",
+    stack: [
+      "Python",
+      "FastAPI",
+      "React",
+      "PostgreSQL",
+      "OpenTelemetry",
+      "Docker",
+    ],
+    image: "/assets/projects/cards/stockroom.jpg",
+    githubUrl: "https://github.com/cancinoray/stockroom",
+    slug: "stockroom",
+  },
+  {
     title: "Rossmann Sales Forecasting",
     description:
       "A daily sales forecast for 1,115 Rossmann stores, built with XGBoost and served through a FastAPI endpoint and a Streamlit dashboard from a single Docker image. The tuned model cuts test RMSE 47% below a store-median baseline.",
