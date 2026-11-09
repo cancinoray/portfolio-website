@@ -20,6 +20,10 @@ export interface Certificate {
   issuer: string;
   date: string;
   credentialUrl?: string;
+  /** Case study on this site showing the work done for the credential. */
+  projectUrl?: string;
+  /** Label for the case-study link; defaults to "View Project". */
+  projectLabel?: string;
   image?: string;
 }
 

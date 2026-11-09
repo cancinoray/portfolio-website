@@ -2,8 +2,9 @@
 
 import { useReveal } from "@/lib/useReveal";
 import { certificates } from "@/data/certificates";
-import { Award, ExternalLink } from "lucide-react";
+import { Award, ExternalLink, FolderGit2 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Certificates() {
   const ref = useReveal();
@@ -52,17 +53,28 @@ export default function Certificates() {
                 <p className="font-mono text-[10px] text-muted/60 mt-0.5">
                   {certificate.date}
                 </p>
-                {certificate.credentialUrl && (
-                  <a
-                    href={certificate.credentialUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-signal text-xs font-mono mt-3 hover:underline"
-                  >
-                    View Credential
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                )}
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-3">
+                  {certificate.credentialUrl && (
+                    <a
+                      href={certificate.credentialUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-signal text-xs font-mono hover:underline"
+                    >
+                      View Credential
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                  {certificate.projectUrl && (
+                    <Link
+                      href={certificate.projectUrl}
+                      className="inline-flex items-center gap-1.5 text-ink/70 text-xs font-mono hover:text-signal transition-colors"
+                    >
+                      <FolderGit2 className="w-3.5 h-3.5" />
+                      {certificate.projectLabel ?? "View Project"}
+                    </Link>
+                  )}
+                </div>
               </div>
             </div>
           ))}

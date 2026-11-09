@@ -6,6 +6,8 @@ export const certificates: Certificate[] = [
     issuer: "WorldQuant University",
     date: "2026",
     credentialUrl: "https://www.credly.com/badges/c7bfe8cd-3e7e-4c8d-a2c5-c533de00db49",
+    projectUrl: "/projects/data-science-portfolio/",
+    projectLabel: "See the projects",
     image: "/assets/certificates/11.png"
   },
   {
