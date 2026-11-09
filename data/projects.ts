@@ -13,6 +13,18 @@ export const projects: Project[] = [
     slug: "ecommerce-logistics-analytics",
   },
   {
+    title: "Data Science Portfolio",
+    description:
+      "Seven end-to-end data science projects on public datasets, each starting from a real question and ending with a plain-language answer and its limitations. Backed by executed notebooks and a live Streamlit dashboard.",
+    highlight: "7 projects · 7 datasets",
+    kind: "Data science",
+    stack: ["Python", "pandas", "scikit-learn", "Streamlit", "Jupyter"],
+    image: "/assets/projects/cards/data-science-portfolio.jpg",
+    liveUrl: "https://data-science-portfolio-cancinoray.streamlit.app/",
+    githubUrl: "https://github.com/cancinoray/data-science-portfolio",
+    slug: "data-science-portfolio",
+  },
+  {
     title: "Carnot Coaching Center",
     description:
       "An EdTech platform targeting Philippine engineering licensure examinees. Built the full-stack web application, infrastructure, and data strategy for the August 2026 MELE cohort launch.",
