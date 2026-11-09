@@ -25,6 +25,18 @@ export const projects: Project[] = [
     slug: "data-science-portfolio",
   },
   {
+    title: "Rossmann Sales Forecasting",
+    description:
+      "A daily sales forecast for 1,115 Rossmann stores, built with XGBoost and served through a FastAPI endpoint and a Streamlit dashboard from a single Docker image. The tuned model cuts test RMSE 47% below a store-median baseline.",
+    highlight: "47% lower RMSE vs baseline",
+    kind: "ML forecasting",
+    stack: ["Python", "XGBoost", "FastAPI", "Streamlit", "Docker"],
+    image: "/assets/projects/cards/rossmann-sales-forecasting.jpg",
+    liveUrl: "https://rossmann-sales-forecasting-cancinoray.streamlit.app/",
+    githubUrl: "https://github.com/cancinoray/rossmann-sales-forecasting",
+    slug: "rossmann-sales-forecasting",
+  },
+  {
     title: "Carnot Coaching Center",
     description:
       "An EdTech platform targeting Philippine engineering licensure examinees. Built the full-stack web application, infrastructure, and data strategy for the August 2026 MELE cohort launch.",
